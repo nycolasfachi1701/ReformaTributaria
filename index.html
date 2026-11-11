@@ -642,9 +642,9 @@ html:not(.js) .tablist{display:none;}
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-<header class="site-header" id="topo">
+<header class="site-header">
     <div class="wrap nav-row">
-        <a class="brandblock" href="#topo" aria-label="Reforma Tributária no Atua — início">
+        <a class="brandblock" id="brandHome" href="#home" aria-label="Reforma Tributária no Atua — voltar ao início">
             <span class="brand-mark">REFORMA <b>TRIBUTÁRIA</b></span>
             <span class="brand-sep" aria-hidden="true"></span>
             <span class="brand-sub">IBS · CBS no Atua</span>
@@ -1860,6 +1860,15 @@ html:not(.js) .tablist{display:none;}
     });
     siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', fecharMenu));
     document.addEventListener('keydown', e => { if(e.key === 'Escape') fecharMenu(); });
+
+    /* ---------- Marca do cabeçalho: volta ao início ---------- */
+    /* O cabeçalho é fixo (sticky), então uma âncora apontando para ele não rola a página. */
+    document.getElementById('brandHome').addEventListener('click', e => {
+        e.preventDefault();
+        fecharMenu();
+        window.scrollTo({top:0, behavior:'smooth'});
+        if(location.hash) history.replaceState(null, '', location.pathname + location.search);
+    });
 
     /* ---------- Barra de progresso de scroll ---------- */
     const progress = document.getElementById('scrollProgress');
