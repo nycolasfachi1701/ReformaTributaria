@@ -29,15 +29,17 @@
     --laranja-escuro:#B23A1B;
     --sobre-laranja:#140500;
 
-    /* Superfícies (dark) */
-    --preto:#0d0e12;
-    --surface:#15161c;
-    --surface-2:#1c1d25;
-    --surface-3:#22232d;
-    --border-soft:#2b2d36;
-    --ink:#EDEEF2;
-    --ink-dim:#A6A9B4;
-    --ink-faint:#7d808c;
+    /* Superfícies (preto neutro, sem tom azulado) */
+    --preto:#000000;
+    --surface:#0a0a0a;
+    --surface-2:#131313;
+    --surface-3:#1b1b1b;
+    --border-soft:#2c2c2c;
+    --border-forte:#4d4d4d;      /* contorno de campos de formulário */
+    --ink:#F2F2F2;
+    --ink-dim:#B0B0B0;
+    --ink-faint:#8f8f8f;
+    --grafico-neutro:#6e6e6e;
 
     /* Semânticas */
     --green:#22c55e;
@@ -58,7 +60,7 @@
     --shadow-md:0 6px 18px rgba(0,0,0,.30), 0 18px 40px rgba(0,0,0,.38);
     --shadow-lg:0 12px 34px rgba(0,0,0,.38), 0 34px 70px rgba(0,0,0,.48);
     --ease:cubic-bezier(.16,1,.3,1);
-    --header-h:72px;
+    --header-h:64px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -141,27 +143,30 @@ input:focus-visible{
     font-size:19px; letter-spacing:.5px; line-height:1; color:var(--ink); white-space:nowrap;
 }
 .brand-mark b{color:var(--laranja); font-weight:inherit;}
-.brand-sep{width:1px; height:22px; background:var(--border-soft);}
-.brand-sub{
-    font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--ink-dim); white-space:nowrap;
+.nav-right{display:flex; align-items:center; gap:14px; flex-shrink:0;}
+.nav-search{
+    width:40px; height:40px; border-radius:10px; border:1px solid transparent;
+    display:inline-flex; align-items:center; justify-content:center; color:var(--ink-dim);
+    transition:color .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
 }
-.nav-right{display:flex; align-items:center; gap:16px;}
+.nav-search:hover{color:var(--ink); background:var(--surface-2); border-color:var(--border-soft);}
 .brand-logo{
     font-family:var(--display); font-size:15px; letter-spacing:2px; color:var(--laranja);
     display:inline-flex; align-items:center; gap:9px;
+    padding-left:16px; border-left:1px solid var(--border-soft);
 }
 .brand-logo img{height:20px; width:auto;}
-.site-nav{display:flex; align-items:center; gap:2px;}
+.site-nav{display:flex; align-items:center; justify-content:center; gap:6px; flex:1;}
 .site-nav a{
-    font-family:var(--mono); font-size:12px; letter-spacing:.03em; text-transform:uppercase;
-    color:var(--ink-dim); padding:9px 12px; border-radius:9px; position:relative; white-space:nowrap;
+    font-family:var(--mono); font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--ink-dim); padding:9px 14px; border-radius:9px; position:relative; white-space:nowrap;
     transition:color .2s var(--ease), background .2s var(--ease);
 }
+.site-nav .so-menu{display:none;}
 .site-nav a:hover{color:var(--ink); background:var(--surface-2);}
 .site-nav a.active{color:var(--laranja-claro);}
 .site-nav a.active::after{
-    content:""; position:absolute; left:12px; right:12px; bottom:3px; height:2px;
+    content:""; position:absolute; left:14px; right:14px; bottom:3px; height:2px;
     background:var(--laranja); border-radius:2px;
 }
 .nav-toggle{
@@ -232,7 +237,7 @@ strong{color:var(--ink); font-weight:700;}
 }
 .hero h1 .hl{color:var(--laranja);}
 .hero .lede{
-    margin-top:26px; color:#C9CDD6; font-size:clamp(15px,1.5vw,17.5px); line-height:1.7; max-width:640px;
+    margin-top:26px; color:#D2D2D2; font-size:clamp(15px,1.5vw,17.5px); line-height:1.7; max-width:640px;
 }
 .hero-facts{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
 .fact{
@@ -253,7 +258,7 @@ strong{color:var(--ink); font-weight:700;}
 }
 .btn-primary{background:var(--laranja); color:var(--sobre-laranja);}
 .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(255,61,3,.32);}
-.btn-ghost{border-color:rgba(255,255,255,.26); color:#fff;}
+.btn-ghost{border-color:rgba(255,255,255,.4); color:#fff;}
 .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08); transform:translateY(-2px);}
 
 .hero-legis{
@@ -291,7 +296,7 @@ strong{color:var(--ink); font-weight:700;}
 .search-wrapper{position:relative; margin-top:26px;}
 #faqSearch{
     width:100%; font-family:var(--corpo); font-size:16px; color:var(--ink);
-    background:var(--preto); border:1px solid var(--border-soft); border-radius:14px;
+    background:var(--preto); border:1px solid var(--border-forte); border-radius:14px;
     padding:18px 20px 18px 54px; outline:none; transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
 #faqSearch::placeholder{color:var(--ink-faint);}
@@ -390,7 +395,7 @@ mark.hl{background:rgba(255,61,3,.28); color:#fff; border-radius:3px; padding:0 
 }
 .tl-item.is-now{border-color:var(--laranja); box-shadow:0 0 0 1px var(--laranja), var(--shadow-md);}
 .tl-item.is-now .tl-now{display:inline-block;}
-.tl-item.is-past{opacity:.72;}
+.tl-item.is-past{opacity:.8;}
 
 .chart-card{
     background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius);
@@ -403,7 +408,7 @@ mark.hl{background:rgba(255,61,3,.28); color:#fff; border-radius:3px; padding:0 
 }
 .bar{display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; gap:6px;}
 .bar-v{font-family:var(--mono); font-size:12px; color:var(--ink); font-variant-numeric:tabular-nums;}
-.bar-fill{width:100%; max-width:64px; border-radius:6px 6px 0 0; background:#5d6070; height:calc(var(--v) * 1.5px); min-height:2px;}
+.bar-fill{width:100%; max-width:64px; border-radius:6px 6px 0 0; background:var(--grafico-neutro); height:calc(var(--v) * 1.5px); min-height:2px;}
 .bar.is-step .bar-fill{background:var(--laranja-claro);}
 .bar.is-zero .bar-fill{background:transparent; border:1px dashed var(--ink-faint); border-bottom:none; height:14px;}
 .bar.is-zero .bar-v{color:var(--laranja-claro);}
@@ -604,7 +609,7 @@ html:not(.js) .calc{display:none;}
 .money{position:relative;}
 .money::before{content:"R$"; position:absolute; left:12px; top:50%; transform:translateY(-50%); font-family:var(--mono); font-size:12px; color:var(--ink-faint); pointer-events:none;}
 .money input{
-    width:100%; background:var(--preto); border:1px solid var(--border-soft); border-radius:10px; color:var(--ink);
+    width:100%; background:var(--preto); border:1px solid var(--border-forte); border-radius:10px; color:var(--ink);
     font-family:var(--mono); font-size:15px; padding:12px 12px 12px 40px; text-align:right; font-variant-numeric:tabular-nums;
     transition:border-color .2s var(--ease);
 }
@@ -668,7 +673,7 @@ html:not(.js) #plano{display:none;}
 .task p{color:var(--ink-dim); font-size:14px; line-height:1.65; margin-top:4px;}
 .task a{display:inline-block; margin-top:8px; font-family:var(--mono); font-size:12px; color:var(--laranja-claro);}
 .task a:hover{text-decoration:underline;}
-.task.is-done{opacity:.55;}
+.task.is-done{opacity:.75;}
 .task.is-done label{text-decoration:line-through;}
 .plan-foot{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:24px; font-size:13px; color:var(--ink-faint);}
 .link-btn{background:none; border:none; cursor:pointer; font-family:var(--mono); font-size:12px; color:var(--laranja-claro); text-decoration:underline; padding:6px 0;}
@@ -763,15 +768,14 @@ html:not(.js) .decisor{display:none;}
 @keyframes boot-up{to{opacity:1; transform:none;}}
 
 /* ============ RESPONSIVO ============ */
-@media(max-width:1300px){
-    .brand-sep,.brand-sub{display:none;}
-}
-@media(max-width:1120px){
+@media(max-width:900px){
     .nav-toggle{display:inline-flex;}
+    .nav-right{gap:8px;}
     .nav-right .brand-logo{display:none;}
+    .site-nav .so-menu{display:block;}
     .site-nav{
         position:absolute; top:var(--header-h); left:0; right:0;
-        flex-direction:column; align-items:stretch; gap:2px;
+        flex-direction:column; align-items:stretch; justify-content:flex-start; gap:2px;
         background:var(--surface); border-bottom:1px solid var(--border-soft);
         padding:12px clamp(18px,4vw,32px) 18px;
         box-shadow:var(--shadow-lg);
@@ -828,19 +832,19 @@ html:not(.js) .decisor{display:none;}
     <div class="wrap nav-row">
         <a class="brandblock" id="brandHome" href="#home" aria-label="Reforma Tributária no Atua — voltar ao início">
             <span class="brand-mark">REFORMA <b>TRIBUTÁRIA</b></span>
-            <span class="brand-sep" aria-hidden="true"></span>
-            <span class="brand-sub">IBS · CBS no Atua</span>
         </a>
         <nav class="site-nav" id="siteNav" aria-label="Navegação da página">
-            <a href="#ajuda">Buscar</a>
-            <a href="#reforma">A reforma</a>
-            <a href="#cronograma">Cronograma</a>
-            <a href="#muda">O que muda</a>
-            <a href="#plano">Plano de ação</a>
-            <a href="#config">No Atua</a>
-            <a href="#faq">Dúvidas</a>
+            <a href="#reforma" data-secoes="reforma cronograma muda">Entenda</a>
+            <a class="so-menu" href="#cronograma" data-secoes="cronograma">Cronograma</a>
+            <a class="so-menu" href="#muda" data-secoes="muda">O que muda</a>
+            <a href="#plano" data-secoes="plano">Plano de ação</a>
+            <a href="#config" data-secoes="config">Configurar</a>
+            <a href="#faq" data-secoes="faq">Dúvidas</a>
         </nav>
         <div class="nav-right">
+            <a class="nav-search" id="navSearch" href="#ajuda" aria-label="Buscar dúvida" title="Buscar dúvida (tecla /)">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+            </a>
             <span class="brand-logo"><img src="favicon.png" alt="" width="24" height="20">NSTECH</span>
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menu">≡</button>
         </div>
@@ -1084,7 +1088,7 @@ html:not(.js) .decisor{display:none;}
                     <span>2026</span><span>2027</span><span>2028</span><span>2029</span><span>2030</span><span>2031</span><span>2032</span><span>2033</span>
                 </div>
                 <figcaption class="chart-legend">
-                    <span><i style="background:#5d6070"></i>Alíquota integral</span>
+                    <span><i style="background:var(--grafico-neutro)"></i>Alíquota integral</span>
                     <span><i style="background:var(--laranja-claro)"></i>Redução gradual</span>
                     <span><i style="border:1px dashed var(--ink-faint)"></i>Extinção</span>
                 </figcaption>
@@ -2440,16 +2444,15 @@ html:not(.js) .decisor{display:none;}
 
     /* ---------- Scroll-spy no menu fixo ---------- */
     const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
-    const sections = navLinks
-        .map(a => document.getElementById(a.getAttribute('href').slice(1)))
-        .filter(Boolean);
+    /* Um item do menu pode cobrir várias seções (data-secoes) */
+    const sections = Array.from(document.querySelectorAll('main > section[id]'));
 
     if('IntersectionObserver' in window && sections.length){
         const spy = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if(entry.isIntersecting){
                     const id = entry.target.id;
-                    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+                    navLinks.forEach(a => a.classList.toggle('active', (a.dataset.secoes || '').split(' ').includes(id)));
                 }
             });
         }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
@@ -2473,6 +2476,16 @@ html:not(.js) .decisor{display:none;}
     });
     siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', fecharMenu));
     document.addEventListener('keydown', e => { if(e.key === 'Escape') fecharMenu(); });
+
+    /* ---------- Lupa do cabeçalho: leva à busca e já deixa o cursor no campo ---------- */
+    document.getElementById('navSearch').addEventListener('click', e => {
+        e.preventDefault();
+        fecharMenu();
+        const ajuda = document.getElementById('ajuda');
+        ajuda.classList.add('is-visible');
+        ajuda.scrollIntoView({behavior:suave, block:'start'});
+        searchInput.focus({preventScroll:true});
+    });
 
     /* ---------- Marca do cabeçalho: volta ao início ---------- */
     /* O cabeçalho é fixo (sticky), então uma âncora apontando para ele não rola a página. */
