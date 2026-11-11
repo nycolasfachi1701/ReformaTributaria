@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "reforma",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "-l", "8778", "."],
+      "port": 8778
+    },
+    {
+      "name": "ciot-antt",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "-l", "8777", "C:\\Users\\Atua\\OneDrive - NSTECH GR LTDA\\Documentos\\Projetos\\Antt"],
+      "port": 8777
+    }
+  ]
+}

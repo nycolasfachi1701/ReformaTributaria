@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reforma Tributária no Atua — IBS e CBS | NSTECH</title>
+<meta name="description" content="Portal de dúvidas sobre a Reforma Tributária no Atua: o que são IBS e CBS, cronograma da transição, o que muda para o transportador e o que configurar no sistema para CT-e, NFS-e e NF-e. NSTECH.">
+<meta name="theme-color" content="#FF3D03">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className += ' js';</script>
+
+<style>
+:root{
+    /* Marca NSTECH */
+    --laranja:#FF3D03;
+    --laranja-claro:#FF9D5C;
+    --laranja-escuro:#B23A1B;
+    --sobre-laranja:#140500;
+
+    /* Superfícies (dark) */
+    --preto:#0d0e12;
+    --surface:#15161c;
+    --surface-2:#1c1d25;
+    --surface-3:#22232d;
+    --border-soft:#2b2d36;
+    --ink:#EDEEF2;
+    --ink-dim:#A6A9B4;
+    --ink-faint:#7d808c;
+
+    /* Semânticas */
+    --green:#22c55e;
+    --blue:#60a5fa;
+    --red:#f87171;
+
+    /* Tipografia */
+    --display:'Archivo Black','Archivo',sans-serif;
+    --corpo:'Archivo',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+
+    /* Métricas */
+    --maxw:1240px;
+    --radius-sm:12px;
+    --radius:18px;
+    --radius-lg:26px;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.25), 0 3px 10px rgba(0,0,0,.28);
+    --shadow-md:0 6px 18px rgba(0,0,0,.30), 0 18px 40px rgba(0,0,0,.38);
+    --shadow-lg:0 12px 34px rgba(0,0,0,.38), 0 34px 70px rgba(0,0,0,.48);
+    --ease:cubic-bezier(.16,1,.3,1);
+    --header-h:72px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:calc(var(--header-h) + 24px);}
+body{
+    font-family:var(--corpo);
+    background:var(--surface);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    overflow-x:hidden;
+    background-image:
+        radial-gradient(ellipse 60% 45% at 85% -5%, rgba(255,61,3,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 0% 100%, rgba(255,61,3,.06) 0%, transparent 55%);
+    background-attachment:fixed;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{list-style:none;}
+::selection{background:var(--laranja);color:#fff;}
+
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+    .js .reveal{opacity:1 !important; transform:none !important;}
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible{
+    outline:3px solid var(--laranja);
+    outline-offset:3px;
+    border-radius:8px;
+}
+
+.skip-link{
+    position:absolute; left:-9999px; top:0; z-index:1200;
+    background:var(--laranja); color:var(--sobre-laranja); padding:10px 16px;
+    font-weight:700; border-radius:0 0 10px 0;
+}
+.skip-link:focus{left:0;}
+.sr-only{
+    position:absolute; width:1px; height:1px; overflow:hidden;
+    clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap;
+}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(18px,4vw,32px);}
+
+/* ============ SCROLL PROGRESS ============ */
+.scroll-progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg, var(--laranja-escuro), var(--laranja), var(--laranja-claro));
+    z-index:1100; transition:width .08s linear;
+    box-shadow:0 0 12px rgba(255,61,3,.6);
+}
+
+/* ============ BRILHO QUE SEGUE O CURSOR ============ */
+.cursor-glow{
+    position:fixed; top:0; left:0; width:520px; height:520px;
+    background:radial-gradient(circle, rgba(255,61,3,.10) 0%, transparent 65%);
+    pointer-events:none; z-index:0; opacity:0;
+    transition:opacity .4s var(--ease); mix-blend-mode:screen;
+}
+
+/* ============ HEADER / NAV ============ */
+.site-header{
+    position:sticky; top:0; z-index:1000;
+    background:color-mix(in srgb, var(--surface) 82%, transparent);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border-soft);
+}
+.nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:18px; min-height:var(--header-h);
+}
+.brandblock{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+.brand-mark{
+    font-family:var(--display);
+    font-size:19px; letter-spacing:.5px; line-height:1; color:var(--ink); white-space:nowrap;
+}
+.brand-mark b{color:var(--laranja); font-weight:inherit;}
+.brand-sep{width:1px; height:22px; background:var(--border-soft);}
+.brand-sub{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-dim); white-space:nowrap;
+}
+.nav-right{display:flex; align-items:center; gap:16px;}
+.brand-logo{
+    font-family:var(--display); font-size:15px; letter-spacing:2px; color:var(--laranja);
+}
+.site-nav{display:flex; align-items:center; gap:2px;}
+.site-nav a{
+    font-family:var(--mono); font-size:12px; letter-spacing:.03em; text-transform:uppercase;
+    color:var(--ink-dim); padding:9px 12px; border-radius:9px; position:relative; white-space:nowrap;
+    transition:color .2s var(--ease), background .2s var(--ease);
+}
+.site-nav a:hover{color:var(--ink); background:var(--surface-2);}
+.site-nav a.active{color:var(--laranja-claro);}
+.site-nav a.active::after{
+    content:""; position:absolute; left:12px; right:12px; bottom:3px; height:2px;
+    background:var(--laranja); border-radius:2px;
+}
+.nav-toggle{
+    display:none; background:var(--surface-2); border:1px solid var(--border-soft);
+    color:var(--ink); width:44px; height:44px; border-radius:10px; cursor:pointer;
+    font-size:20px; line-height:1; align-items:center; justify-content:center;
+}
+
+/* ============ SEÇÕES ============ */
+main{display:block;}
+section{padding:clamp(56px,8vw,104px) 0; position:relative;}
+section.hero{padding:0;}
+.sec-head{margin-bottom:clamp(30px,5vw,54px); max-width:760px;}
+.sec-tag{
+    font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--laranja-claro); display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;
+}
+.sec-tag::before{content:""; width:24px; height:2px; background:var(--laranja); display:inline-block;}
+.sec-head h2{
+    font-family:var(--display); font-size:clamp(26px,4vw,42px); line-height:1.05;
+    letter-spacing:-.01em; color:var(--ink); text-wrap:balance;
+}
+.sec-head p{color:var(--ink-dim); font-size:15.5px; margin-top:14px; max-width:640px;}
+.sub-title{
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--laranja-claro); display:flex; align-items:center; gap:10px; margin:0 0 16px;
+}
+.sub-title::before{content:""; width:20px; height:2px; background:var(--laranja);}
+.block{margin-top:clamp(34px,5vw,56px);}
+strong{color:var(--ink); font-weight:700;}
+.code{
+    font-family:var(--mono); font-size:.86em; color:var(--laranja-claro);
+    background:rgba(255,61,3,.09); border:1px solid rgba(255,61,3,.26);
+    padding:1px 7px; border-radius:6px; white-space:nowrap;
+}
+
+/* ============ HERO ============ */
+.hero{
+    position:relative; overflow:hidden;
+    border-bottom:5px solid var(--laranja);
+    background:
+        radial-gradient(ellipse 70% 60% at 80% 0%, rgba(255,61,3,.16) 0%, transparent 60%),
+        var(--preto);
+}
+.hero::before{
+    content:""; position:absolute; inset:-40px; pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:46px 46px;
+    transform:translate3d(var(--grid-x,0px), var(--grid-y,0px), 0);
+    mask-image:radial-gradient(ellipse 90% 80% at 60% 10%, #000 30%, transparent 85%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 80% at 60% 10%, #000 30%, transparent 85%);
+}
+.hero-inner{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.35fr .95fr; gap:clamp(32px,5vw,64px); align-items:center;
+    padding:clamp(52px,7vw,88px) 0 clamp(44px,6vw,68px);
+}
+.hero-eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--laranja-claro); display:flex; align-items:center; gap:12px; margin-bottom:24px;
+}
+.hero-eyebrow::before{content:""; width:30px; height:2px; background:var(--laranja);}
+.hero h1{
+    font-family:var(--display); color:#fff;
+    font-size:clamp(34px,5.2vw,60px); line-height:1.0; letter-spacing:-.01em; text-wrap:balance;
+}
+.hero h1 .hl{color:var(--laranja);}
+.hero .lede{
+    margin-top:26px; color:#C9CDD6; font-size:clamp(15px,1.5vw,17.5px); line-height:1.7; max-width:640px;
+}
+.hero-facts{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+.fact{
+    background:color-mix(in srgb, var(--surface-2) 70%, transparent);
+    border:1px solid var(--border-soft); border-radius:var(--radius-sm); padding:12px 16px; min-width:128px;
+}
+.fact b{display:block; font-family:var(--display); font-weight:400; font-size:24px; line-height:1.1; color:#fff; font-variant-numeric:tabular-nums;}
+.fact span{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-dim);}
+.fact.is-accent{border-color:rgba(255,61,3,.45);}
+.fact.is-accent b{color:var(--laranja-claro);}
+.hero-actions{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
+
+.btn{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; font-weight:600;
+    padding:14px 24px; border-radius:11px; cursor:pointer; border:1px solid transparent;
+    display:inline-flex; align-items:center; gap:10px; position:relative; overflow:hidden;
+    transition:transform .2s var(--ease), background .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+}
+.btn-primary{background:var(--laranja); color:var(--sobre-laranja);}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(255,61,3,.32);}
+.btn-ghost{border-color:rgba(255,255,255,.26); color:#fff;}
+.btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,.08); transform:translateY(-2px);}
+
+.hero-legis{
+    background:color-mix(in srgb, var(--surface-2) 70%, transparent);
+    border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:26px; box-shadow:var(--shadow-md); backdrop-filter:blur(6px);
+}
+.hl-kicker{
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--laranja-claro); display:flex; align-items:center; gap:9px; margin-bottom:16px;
+}
+.hl-kicker::before{content:""; width:20px; height:2px; background:var(--laranja);}
+.leg-list{display:flex; flex-direction:column; gap:2px;}
+.leg-list a{
+    display:flex; align-items:flex-start; gap:10px; padding:11px 12px; border-radius:10px;
+    color:var(--ink); font-size:14px; font-weight:500; line-height:1.4;
+    border:1px solid transparent; transition:all .18s var(--ease);
+}
+.leg-list a::before{content:"→"; color:var(--laranja); font-family:var(--mono); font-size:13px;}
+.leg-list a:hover{background:var(--surface-3); border-color:var(--border-soft); transform:translateX(3px);}
+.leg-list small{display:block; color:var(--ink-dim); font-size:12.5px; font-weight:400;}
+.hero-updated{
+    margin-top:16px; padding-top:14px; border-top:1px solid var(--border-soft);
+    font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--ink-dim);
+}
+
+/* ============ BUSCA ============ */
+.help-center{
+    background:linear-gradient(180deg, var(--surface-2), var(--surface));
+    border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+    padding:clamp(28px,4vw,48px); box-shadow:var(--shadow-md);
+}
+.help-title{font-family:var(--display); font-size:clamp(24px,3.4vw,36px); line-height:1.05; color:var(--ink);}
+.help-subtitle{color:var(--ink-dim); margin-top:12px; font-size:15.5px;}
+.search-wrapper{position:relative; margin-top:26px;}
+#faqSearch{
+    width:100%; font-family:var(--corpo); font-size:16px; color:var(--ink);
+    background:var(--preto); border:1px solid var(--border-soft); border-radius:14px;
+    padding:18px 20px 18px 54px; outline:none; transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+#faqSearch::placeholder{color:var(--ink-faint);}
+#faqSearch:focus{border-color:var(--laranja); box-shadow:0 0 0 4px rgba(255,61,3,.14);}
+.search-icon{
+    position:absolute; left:20px; top:50%; transform:translateY(-50%);
+    width:20px; height:20px; color:var(--laranja); pointer-events:none;
+}
+.help-tags{display:flex; flex-wrap:wrap; gap:9px; margin-top:20px;}
+.help-tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.02em;
+    background:var(--surface-3); border:1px solid var(--border-soft); color:var(--ink-dim);
+    padding:9px 14px; border-radius:999px; cursor:pointer; transition:all .18s var(--ease);
+}
+.help-tag:hover{color:var(--ink); border-color:var(--laranja-escuro); transform:translateY(-1px);}
+.help-tag.active{background:var(--laranja); border-color:var(--laranja); color:var(--sobre-laranja); font-weight:600;}
+
+.search-result{display:none; margin-top:26px; flex-direction:column; gap:12px;}
+.search-result.show{display:flex;}
+.search-success{
+    font-family:var(--mono); font-size:13px; color:var(--green);
+    background:rgba(34,197,94,.08); border:1px solid rgba(34,197,94,.3);
+    padding:10px 14px; border-radius:10px;
+}
+.search-fail{
+    font-family:var(--mono); font-size:13px; color:var(--red);
+    background:rgba(248,113,113,.08); border:1px solid rgba(248,113,113,.3);
+    padding:12px 14px; border-radius:10px;
+}
+.ticket-box{
+    background:var(--surface-3); border:1px solid var(--border-soft); border-radius:10px;
+    padding:16px; font-size:14px; color:var(--ink-dim); line-height:1.7;
+}
+.result-group-title{
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--laranja-claro); margin-top:10px;
+}
+.search-match{
+    display:block; background:var(--surface-2); border:1px solid var(--border-soft);
+    border-left:3px solid var(--laranja); border-radius:12px; padding:16px 18px;
+    transition:transform .18s var(--ease), border-color .18s var(--ease);
+}
+a.search-match:hover{transform:translateX(3px); border-color:var(--laranja);}
+.search-match > strong{display:block; font-size:15px; line-height:1.4;}
+.search-answer{color:var(--ink-dim); font-size:14px; line-height:1.7; margin-top:8px;}
+.search-answer ol{margin:8px 0 0 20px; list-style:decimal;}
+.search-match p{color:var(--ink-dim); font-size:13px; margin-top:6px;}
+mark.hl{background:rgba(255,61,3,.28); color:#fff; border-radius:3px; padding:0 2px;}
+
+/* ============ A REFORMA ============ */
+.tax-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+.tax-card{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:24px; box-shadow:var(--shadow-sm);
+    transition:transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
+}
+.tax-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--laranja-escuro);}
+.tax-sigla{font-family:var(--display); font-size:40px; line-height:1; color:var(--laranja);}
+.tax-name{color:var(--ink); font-weight:600; font-size:15.5px; margin-top:8px;}
+.tax-card dl{margin-top:18px; display:grid; gap:12px;}
+.tax-card dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint);}
+.tax-card dd{color:var(--ink-dim); font-size:14px; line-height:1.6; margin-top:3px;}
+
+.trait-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;}
+.trait{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius); padding:20px;
+}
+.trait-n{font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--laranja);}
+.trait h3{font-family:var(--display); font-weight:400; font-size:16px; color:var(--ink); margin:8px 0 8px;}
+.trait p{color:var(--ink-dim); font-size:14px; line-height:1.6;}
+.trait.is-key{border-color:rgba(255,61,3,.45); background:rgba(255,61,3,.06);}
+
+/* ============ CRONOGRAMA ============ */
+.timeline{position:relative; display:grid; gap:14px;}
+.tl-item{
+    display:grid; grid-template-columns:170px 1fr; gap:22px; align-items:start;
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:22px 24px; position:relative;
+}
+.tl-when{font-family:var(--display); font-size:26px; line-height:1.05; color:var(--ink); font-variant-numeric:tabular-nums;}
+.tl-when small{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:8px; font-weight:400;}
+.tl-body h3{font-family:var(--display); font-weight:400; font-size:17px; color:var(--laranja-claro); margin-bottom:8px;}
+.tl-body p{color:var(--ink-dim); font-size:14.5px; line-height:1.7;}
+.tl-body p + p{margin-top:8px;}
+.tl-now{
+    display:none; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--laranja); color:var(--sobre-laranja); font-weight:600; padding:4px 10px; border-radius:999px; margin-top:10px;
+}
+.tl-item.is-now{border-color:var(--laranja); box-shadow:0 0 0 1px var(--laranja), var(--shadow-md);}
+.tl-item.is-now .tl-now{display:inline-block;}
+.tl-item.is-past{opacity:.72;}
+
+.chart-card{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:clamp(20px,3vw,30px);
+}
+.chart-card > p{color:var(--ink-dim); font-size:14.5px; line-height:1.7; max-width:720px;}
+.bars{
+    display:grid; grid-template-columns:repeat(8,1fr); gap:clamp(6px,1.4vw,14px);
+    align-items:end; height:190px; margin-top:26px; padding-bottom:0; border-bottom:1px solid var(--border-soft);
+}
+.bar{display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; gap:6px;}
+.bar-v{font-family:var(--mono); font-size:12px; color:var(--ink); font-variant-numeric:tabular-nums;}
+.bar-fill{width:100%; max-width:64px; border-radius:6px 6px 0 0; background:#5d6070; height:calc(var(--v) * 1.5px); min-height:2px;}
+.bar.is-step .bar-fill{background:var(--laranja-claro);}
+.bar.is-zero .bar-fill{background:transparent; border:1px dashed var(--ink-faint); border-bottom:none; height:14px;}
+.bar.is-zero .bar-v{color:var(--laranja-claro);}
+.bar-years{display:grid; grid-template-columns:repeat(8,1fr); gap:clamp(6px,1.4vw,14px); margin-top:8px;}
+.bar-years span{text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--ink-dim); font-variant-numeric:tabular-nums;}
+.chart-legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:13px; color:var(--ink-dim);}
+.chart-legend i{display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:8px; vertical-align:-1px;}
+
+.note{
+    background:rgba(255,61,3,.07); border:1px dashed rgba(255,61,3,.34);
+    border-radius:var(--radius-sm); padding:14px 16px; color:var(--ink-dim); font-size:14px; line-height:1.7;
+}
+.date-list{display:grid; gap:10px;}
+.date-row{
+    display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:baseline;
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius-sm); padding:14px 18px;
+}
+.date-row time{font-family:var(--mono); font-size:13px; font-weight:600; color:var(--laranja-claro); font-variant-numeric:tabular-nums;}
+.date-row p{color:var(--ink-dim); font-size:14.5px; line-height:1.65;}
+
+/* ============ O QUE MUDA ============ */
+.compare{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start;}
+.col-year{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+    padding:clamp(22px,3vw,32px); box-shadow:var(--shadow-sm);
+}
+.col-year.is-2027{border-color:rgba(255,61,3,.45);}
+.col-kicker{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--laranja-claro);}
+.col-year h3{font-family:var(--display); font-weight:400; font-size:clamp(26px,3.4vw,36px); line-height:1.05; color:var(--ink); margin:8px 0 18px;}
+.item-list{display:grid; gap:14px;}
+.item-list li{
+    position:relative; padding-left:22px; color:var(--ink-dim); font-size:14.5px; line-height:1.7;
+}
+.item-list li::before{content:"▹"; position:absolute; left:0; top:0; color:var(--laranja);}
+
+.formula{
+    display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:14px;
+    font-family:var(--mono); font-size:13px;
+}
+.formula span{background:var(--surface-3); border:1px solid var(--border-soft); color:var(--ink); padding:7px 12px; border-radius:8px;}
+.formula span.is-res{background:var(--laranja); border-color:var(--laranja); color:var(--sobre-laranja); font-weight:600;}
+.formula i{font-style:normal; color:var(--laranja-claro); font-weight:600;}
+
+.important-box{
+    margin-top:24px; background:rgba(255,61,3,.06); border:1px solid rgba(255,61,3,.28);
+    border-left:4px solid var(--laranja); border-radius:var(--radius); padding:22px 24px;
+}
+.important-title{font-family:var(--display); font-size:16px; color:var(--laranja-claro); margin-bottom:10px;}
+.important-text{color:var(--ink-dim); font-size:14.5px; line-height:1.75;}
+.warning-box{
+    margin-top:16px; background:var(--surface-2); border:1px solid var(--border-soft);
+    border-left:4px solid var(--blue); border-radius:var(--radius); padding:22px 24px;
+}
+.warning-title{font-family:var(--display); font-size:16px; color:var(--blue); margin-bottom:10px;}
+.warning-text{color:var(--ink-dim); font-size:14.5px; line-height:1.75;}
+
+/* ============ CONFIGURAÇÕES (abas) ============ */
+.guide-panel{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius-lg);
+    padding:clamp(20px,3.5vw,40px); box-shadow:var(--shadow-md);
+}
+.tablist{display:flex; flex-wrap:wrap; gap:8px; padding-bottom:22px; margin-bottom:26px; border-bottom:1px solid var(--border-soft);}
+.tab{
+    font-family:var(--mono); font-size:12px; letter-spacing:.03em;
+    background:var(--surface-3); border:1px solid var(--border-soft); color:var(--ink-dim);
+    padding:10px 16px; border-radius:999px; cursor:pointer; transition:all .18s var(--ease);
+}
+.tab:hover{color:var(--ink); border-color:var(--laranja-escuro);}
+.tab[aria-selected="true"]{background:var(--laranja); border-color:var(--laranja); color:var(--sobre-laranja); font-weight:600;}
+html:not(.js) .tablist{display:none;}
+.tabpanel + .tabpanel{margin-top:40px;}
+.js .tabpanel + .tabpanel{margin-top:0;}
+.js .tabpanel[hidden]{display:none;}
+.panel-title{font-family:var(--display); font-weight:400; font-size:clamp(20px,2.6vw,26px); line-height:1.2; color:var(--ink);}
+.panel-lede{color:var(--ink-dim); font-size:15px; line-height:1.7; margin-top:10px; max-width:760px;}
+.panel-block{margin-top:28px;}
+
+.cfg-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px;}
+.cfg-item{
+    background:var(--surface-3); border:1px solid var(--border-soft); border-radius:var(--radius);
+    padding:20px; transition:border-color .22s var(--ease);
+}
+.cfg-item:hover{border-color:var(--laranja-escuro);}
+.cfg-path{font-family:var(--mono); font-size:11px; letter-spacing:.02em; color:var(--ink-faint); line-height:1.6;}
+.cfg-field{font-family:var(--display); font-weight:400; font-size:16px; line-height:1.3; color:var(--laranja-claro); margin:6px 0 10px;}
+.cfg-item p{color:var(--ink-dim); font-size:14px; line-height:1.7;}
+.cfg-item p + p{margin-top:8px;}
+.cfg-item .item-list{margin-top:10px; gap:8px;}
+.cfg-item .item-list li{font-size:14px;}
+.cfg-wide{grid-column:1 / -1;}
+
+.steps{display:grid; gap:10px; counter-reset:passo;}
+.steps li{
+    counter-increment:passo; position:relative;
+    background:var(--surface-3); border:1px solid var(--border-soft); border-radius:var(--radius-sm);
+    padding:16px 18px 16px 62px; color:var(--ink-dim); font-size:14.5px; line-height:1.7;
+}
+.steps li::before{
+    content:counter(passo); position:absolute; left:18px; top:16px;
+    width:30px; height:30px; border-radius:50%;
+    background:var(--laranja); color:var(--sobre-laranja);
+    font-family:var(--mono); font-weight:600; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+}
+
+.table-wrap{overflow-x:auto; border-radius:var(--radius); border:1px solid var(--border-soft);}
+.g-table{width:100%; border-collapse:collapse; font-size:14px;}
+.g-table th{
+    background:var(--surface-3); color:var(--laranja-claro); text-align:left; padding:13px 16px;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; font-weight:500;
+    border-bottom:1px solid var(--border-soft);
+}
+.g-table td{padding:13px 16px; color:var(--ink-dim); border-bottom:1px solid var(--border-soft); vertical-align:top; line-height:1.6;}
+.g-table tr:last-child td{border-bottom:none;}
+.g-table td:first-child{color:var(--ink); font-weight:600;}
+.g-table.is-wide{min-width:560px;}
+.g-table .mono{font-family:var(--mono); font-size:12.5px; font-weight:500;}
+
+.msg-list{display:grid; gap:8px; margin-top:10px;}
+.msg{font-family:var(--mono); font-size:12.5px; line-height:1.6; padding:10px 14px; border-radius:10px; border:1px solid var(--border-soft); background:var(--preto); color:var(--ink);}
+.msg.ok{border-color:rgba(34,197,94,.35); color:#86efac;}
+.msg.err{border-color:rgba(248,113,113,.35); color:#fca5a5;}
+.doc-link{color:var(--laranja-claro); font-weight:600;}
+.doc-link:hover{text-decoration:underline;}
+
+.flash{animation:flash 1.6s var(--ease);}
+@keyframes flash{
+    0%{box-shadow:0 0 0 3px rgba(255,61,3,.55);}
+    100%{box-shadow:0 0 0 3px rgba(255,61,3,0);}
+}
+
+/* ============ FAQ ============ */
+.faq-container{display:flex; flex-direction:column; gap:12px;}
+.faq-item{
+    background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius);
+    overflow:hidden; transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.faq-item.open{border-color:var(--laranja-escuro); box-shadow:var(--shadow-sm);}
+.faq-q{
+    width:100%; text-align:left; cursor:pointer; background:transparent; border:none;
+    font-family:var(--corpo); font-weight:600; font-size:15.5px; color:var(--ink);
+    padding:20px 54px 20px 22px; position:relative; line-height:1.5;
+    transition:color .2s var(--ease);
+}
+.faq-q:hover{color:var(--laranja-claro);}
+.faq-q::after{
+    content:"+"; position:absolute; right:22px; top:50%; transform:translateY(-50%);
+    font-size:24px; font-weight:400; color:var(--laranja); transition:transform .3s var(--ease); line-height:1;
+}
+.faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg);}
+.js .faq-a{max-height:0; overflow:hidden; visibility:hidden; transition:max-height .35s var(--ease), visibility 0s .35s;}
+.js .faq-item.open .faq-a{visibility:visible; transition:max-height .35s var(--ease), visibility 0s;}
+.faq-content{padding:0 22px 22px; color:var(--ink-dim); font-size:14.5px; line-height:1.8;}
+.faq-content ol{margin:8px 0 0 20px; list-style:decimal;}
+.faq-content a{color:var(--laranja-claro); font-weight:600;}
+.faq-content a:hover{text-decoration:underline;}
+
+/* ============ FOOTER ============ */
+.site-footer{border-top:1px solid var(--border-soft); background:var(--preto); margin-top:40px;}
+.footer-grid{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:36px;
+    padding:clamp(40px,6vw,64px) 0 clamp(28px,4vw,40px);
+}
+.footer-brand .brand-mark{font-size:22px;}
+.footer-about{color:var(--ink-dim); font-size:13.5px; line-height:1.7; margin-top:14px; max-width:360px;}
+.footer-col h4{
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--laranja-claro); margin-bottom:14px; font-weight:500;
+}
+.footer-col ul{display:flex; flex-direction:column; gap:9px;}
+.footer-col a{color:var(--ink-dim); font-size:13.5px; transition:color .18s var(--ease);}
+.footer-col a:hover{color:var(--laranja-claro);}
+.footer-bottom{
+    border-top:1px solid var(--border-soft); padding:20px 0;
+    display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:11px; letter-spacing:.03em; color:var(--ink-dim);
+}
+.footer-bottom b{color:var(--laranja);}
+
+/* ============ TO TOP ============ */
+.to-top{
+    position:fixed; right:22px; bottom:22px; width:48px; height:48px; border:none; border-radius:50%;
+    background:var(--laranja); color:var(--sobre-laranja); font-size:22px; cursor:pointer; z-index:900;
+    display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-md);
+    opacity:0; visibility:hidden; transform:translateY(12px); transition:all .25s var(--ease);
+}
+.to-top.show{opacity:1; visibility:visible; transform:none;}
+.to-top:hover{background:var(--laranja-claro);}
+
+/* ============ REVEAL (só com JS ativo) ============ */
+.js .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.js .reveal.is-visible{opacity:1; transform:none;}
+.js .hero-boot{opacity:0; transform:translateY(16px); animation:boot-up .9s var(--ease) both; animation-delay:var(--d,0ms);}
+@keyframes boot-up{to{opacity:1; transform:none;}}
+
+/* ============ RESPONSIVO ============ */
+@media(max-width:1240px){
+    .brand-sep,.brand-sub{display:none;}
+}
+@media(max-width:1040px){
+    .nav-toggle{display:inline-flex;}
+    .nav-right .brand-logo{display:none;}
+    .site-nav{
+        position:absolute; top:var(--header-h); left:0; right:0;
+        flex-direction:column; align-items:stretch; gap:2px;
+        background:var(--surface); border-bottom:1px solid var(--border-soft);
+        padding:12px clamp(18px,4vw,32px) 18px;
+        box-shadow:var(--shadow-lg);
+        display:none;
+    }
+    .site-nav.open{display:flex;}
+    .site-nav a{padding:13px 14px; border-radius:10px;}
+    .site-nav a.active::after{display:none;}
+}
+@media(max-width:920px){
+    .hero-inner{grid-template-columns:1fr; gap:36px;}
+    .tax-grid{grid-template-columns:1fr;}
+    .compare{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:28px;}
+}
+@media(max-width:640px){
+    .tl-item{grid-template-columns:1fr; gap:12px; padding:20px;}
+    .date-row{grid-template-columns:1fr; gap:4px;}
+    .cfg-list{grid-template-columns:1fr;}
+    .bar-v{font-size:10.5px;}
+    .bar-years span{font-size:10.5px;}
+    .brand-mark{font-size:17px;}
+}
+@media(max-width:480px){
+    .hero-actions .btn{width:100%; justify-content:center;}
+    .fact{flex:1 1 calc(50% - 10px); min-width:0;}
+}
+
+/* ============ IMPRESSÃO ============ */
+@media print{
+    :root{--surface:#fff; --surface-2:#fff; --surface-3:#f4f4f6; --preto:#fff; --ink:#111; --ink-dim:#333; --ink-faint:#555; --border-soft:#cfd0d6; --laranja-claro:#B23A1B;}
+    body{background:#fff; color:#111;}
+    .site-header,.scroll-progress,.cursor-glow,.to-top,.tablist,.help-center,.hero-actions,.skip-link{display:none !important;}
+    .hero{background:#fff; border-bottom:3px solid var(--laranja);}
+    .hero::before{display:none;}
+    .hero h1,.fact b{color:#111;}
+    .hero .lede{color:#333;}
+    .js .reveal,.js .hero-boot{opacity:1 !important; transform:none !important; animation:none !important;}
+    .js .faq-a{max-height:none !important; visibility:visible !important;}
+    .js .tabpanel[hidden]{display:block !important;}
+    .tabpanel + .tabpanel{margin-top:32px !important;}
+    section{padding:28px 0;}
+    .tl-item,.cfg-item,.faq-item,.trait,.tax-card,.col-year{break-inside:avoid; box-shadow:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="site-header" id="topo">
+    <div class="wrap nav-row">
+        <a class="brandblock" href="#topo" aria-label="Reforma Tributária no Atua — início">
+            <span class="brand-mark">REFORMA <b>TRIBUTÁRIA</b></span>
+            <span class="brand-sep" aria-hidden="true"></span>
+            <span class="brand-sub">IBS · CBS no Atua</span>
+        </a>
+        <nav class="site-nav" id="siteNav" aria-label="Navegação da página">
+            <a href="#ajuda">Buscar dúvida</a>
+            <a href="#reforma">A reforma</a>
+            <a href="#cronograma">Cronograma</a>
+            <a href="#muda">O que muda</a>
+            <a href="#config">No Atua</a>
+            <a href="#faq">Perguntas frequentes</a>
+        </nav>
+        <div class="nav-right">
+            <span class="brand-logo">NSTECH</span>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menu">≡</button>
+        </div>
+    </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+    <div class="wrap">
+        <div class="hero-inner">
+            <div>
+                <div class="hero-eyebrow hero-boot" style="--d:60ms">Reforma Tributária · IBS e CBS</div>
+                <h1 class="hero-boot" style="--d:140ms">IBS e CBS no Atua: o que muda e <span class="hl">como configurar</span></h1>
+                <p class="lede hero-boot" style="--d:240ms">
+                    A Reforma Tributária do consumo troca PIS, COFINS, ICMS e ISS por dois novos tributos: a CBS e o IBS. Em 2026, ano de teste, seus documentos já saem com os dois destacados, sem mudar o valor cobrado do cliente. A partir de 2027 a CBS passa a ser cobrada de fato e o IBS/CBS é somado ao valor do frete. Aqui você encontra as datas, o impacto para o transportador e o que conferir no sistema.
+                </p>
+                <div class="hero-facts hero-boot" style="--d:320ms">
+                    <div class="fact"><b>0,9%</b><span>CBS em 2026</span></div>
+                    <div class="fact"><b>0,1%</b><span>IBS em 2026</span></div>
+                    <div class="fact is-accent" id="factContagem" hidden><b id="diasPara2027">—</b><span>dias para 01/01/2027</span></div>
+                </div>
+                <div class="hero-actions hero-boot" style="--d:400ms">
+                    <a class="btn btn-primary" href="#ajuda">Buscar dúvida</a>
+                    <a class="btn btn-ghost" href="#config">O que configurar no Atua</a>
+                </div>
+            </div>
+            <aside class="hero-legis hero-boot" style="--d:460ms" aria-labelledby="legisTitulo">
+                <div class="hl-kicker" id="legisTitulo">Legislação e fontes oficiais</div>
+                <ul class="leg-list">
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm" target="_blank" rel="noopener noreferrer"><span>Emenda Constitucional nº 132/2023<small>Cria o IBS, a CBS e o Imposto Seletivo</small></span></a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank" rel="noopener noreferrer"><span>Lei Complementar nº 214/2025<small>Regulamenta o IBS e a CBS</small></span></a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp227.htm" target="_blank" rel="noopener noreferrer"><span>Lei Complementar nº 227/2026<small>Comitê Gestor do IBS e ajustes na LC 214</small></span></a></li>
+                    <li><a href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo" target="_blank" rel="noopener noreferrer"><span>Reforma Tributária do Consumo<small>Programa da Receita Federal</small></span></a></li>
+                    <li><a href="https://www.gov.br/nfse/pt-br" target="_blank" rel="noopener noreferrer"><span>Portal da NFS-e<small>Tabelas de NBS, indicadores e classificação</small></span></a></li>
+                </ul>
+                <div class="hero-updated">Conteúdo atualizado em 10/11/2026</div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- ============ BUSCA ============ -->
+<section class="reveal" id="ajuda">
+    <div class="wrap">
+        <div class="help-center">
+            <h2 class="help-title">Como podemos ajudar?</h2>
+            <p class="help-subtitle">Busque por palavra-chave nas perguntas frequentes e no guia de configuração.</p>
+
+            <div class="search-wrapper">
+                <label for="faqSearch" class="sr-only">Buscar dúvida</label>
+                <input type="search" id="faqSearch" autocomplete="off" placeholder="Digite sua dúvida...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+            </div>
+
+            <div class="help-tags" role="group" aria-label="Palavras-chave sugeridas">
+                <button type="button" class="help-tag">CT-e</button>
+                <button type="button" class="help-tag">NFS-e</button>
+                <button type="button" class="help-tag">NF-e</button>
+                <button type="button" class="help-tag">MDF-e</button>
+                <button type="button" class="help-tag">Simples Nacional</button>
+                <button type="button" class="help-tag">Alíquota</button>
+                <button type="button" class="help-tag">CST</button>
+                <button type="button" class="help-tag">Exportação</button>
+                <button type="button" class="help-tag">Cooperativa</button>
+                <button type="button" class="help-tag">Rumo</button>
+                <button type="button" class="help-tag">Crédito</button>
+                <button type="button" class="help-tag">2027</button>
+            </div>
+
+            <div class="search-result" id="searchResult" aria-live="polite"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ A REFORMA ============ -->
+<section class="reveal" id="reforma" data-nome="A reforma">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">Entenda a reforma</div>
+            <h2>Cinco tributos saem, entra um IVA dual</h2>
+            <p>A Emenda Constitucional 132/2023, regulamentada pela Lei Complementar 214/2025, troca cinco tributos por dois impostos sobre valor agregado e cria um imposto extra sobre produtos prejudiciais à saúde e ao meio ambiente.</p>
+        </div>
+
+        <div class="tax-grid">
+            <article class="tax-card buscavel" data-titulo="CBS — Contribuição sobre Bens e Serviços">
+                <div class="tax-sigla">CBS</div>
+                <div class="tax-name">Contribuição sobre Bens e Serviços</div>
+                <dl>
+                    <div><dt>Quem cobra</dt><dd>União (Receita Federal)</dd></div>
+                    <div><dt>Substitui</dt><dd>PIS e COFINS, e também o IPI, que fica com alíquota zero na maioria dos produtos</dd></div>
+                </dl>
+            </article>
+            <article class="tax-card buscavel" data-titulo="IBS — Imposto sobre Bens e Serviços">
+                <div class="tax-sigla">IBS</div>
+                <div class="tax-name">Imposto sobre Bens e Serviços</div>
+                <dl>
+                    <div><dt>Quem cobra</dt><dd>Estados, DF e municípios, por meio do Comitê Gestor do IBS</dd></div>
+                    <div><dt>Substitui</dt><dd>ICMS e ISS</dd></div>
+                </dl>
+            </article>
+            <article class="tax-card buscavel" data-titulo="IS — Imposto Seletivo">
+                <div class="tax-sigla">IS</div>
+                <div class="tax-name">Imposto Seletivo</div>
+                <dl>
+                    <div><dt>Quem cobra</dt><dd>União</dd></div>
+                    <div><dt>Substitui</dt><dd>Nenhum tributo. Incide sobre bens prejudiciais à saúde e ao meio ambiente</dd></div>
+                </dl>
+            </article>
+        </div>
+
+        <div class="block">
+            <h3 class="sub-title">Como o IBS e a CBS funcionam</h3>
+            <div class="trait-grid">
+                <div class="trait buscavel" data-titulo="Base ampla">
+                    <div class="trait-n">01</div>
+                    <h3>Base ampla</h3>
+                    <p>Incidem sobre todas as operações onerosas com bens e serviços, inclusive o frete.</p>
+                </div>
+                <div class="trait buscavel" data-titulo="Não cumulatividade plena (crédito)">
+                    <div class="trait-n">02</div>
+                    <h3>Não cumulatividade plena</h3>
+                    <p>O imposto pago nas etapas anteriores vira crédito na etapa seguinte. Acaba o efeito cascata.</p>
+                </div>
+                <div class="trait buscavel" data-titulo="Cobrança no destino">
+                    <div class="trait-n">03</div>
+                    <h3>Cobrança no destino</h3>
+                    <p>O imposto vai para o estado e o município onde está o adquirente ou o consumidor, e não para os da origem.</p>
+                </div>
+                <div class="trait buscavel" data-titulo="IBS UF e IBS Mun.">
+                    <div class="trait-n">04</div>
+                    <h3>IBS em duas partes</h3>
+                    <p>Uma parte estadual e uma municipal. O CT-e, a NF-e e os relatórios do Atua mostram as duas separadas: <strong>IBS UF</strong> e <strong>IBS Mun.</strong></p>
+                </div>
+                <div class="trait is-key buscavel" data-titulo="Imposto “por fora” a partir de 2027">
+                    <div class="trait-n">05</div>
+                    <h3>Imposto “por fora”</h3>
+                    <p>A partir de 2027 o IBS e a CBS deixam de estar embutidos no preço e passam a ser somados a ele. Para o transportador, é a mudança de maior impacto.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CRONOGRAMA ============ -->
+<section class="reveal" id="cronograma" data-nome="Cronograma">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">Cronograma da transição</div>
+            <h2>De 2026 a 2033: as datas de vigência</h2>
+            <p>A troca é gradual. Os tributos atuais e os novos convivem até 2032.</p>
+        </div>
+
+        <ol class="timeline" id="timeline">
+            <li class="tl-item buscavel" data-titulo="2026 — ano de teste" data-de="2026" data-ate="2026">
+                <div class="tl-when">2026<small>a partir de 01/01</small><span class="tl-now">Estamos aqui</span></div>
+                <div class="tl-body">
+                    <h3>Ano de teste</h3>
+                    <p>O documento fiscal destaca <strong>CBS de 0,9%</strong> e <strong>IBS de 0,1%</strong> (IBS estadual 0,1%, municipal 0%). O recolhimento fica dispensado para quem cumpre as obrigações acessórias, ou seja, para quem emite os documentos com as novas informações.</p>
+                    <p>ICMS, ISS, PIS e COFINS <strong>continuam</strong> sendo calculados e pagos normalmente. <strong>O Simples Nacional fica fora do teste.</strong></p>
+                </div>
+            </li>
+            <li class="tl-item buscavel" data-titulo="2027 — CBS cobrada de fato, fim do PIS e da COFINS" data-de="2027" data-ate="2027">
+                <div class="tl-when">2027<small>a partir de 01/01</small><span class="tl-now">Estamos aqui</span></div>
+                <div class="tl-body">
+                    <h3>A CBS passa a ser cobrada de fato</h3>
+                    <p><strong>PIS e COFINS são extintos.</strong> O IPI vai a zero (com exceções, como a Zona Franca de Manaus) e começa o Imposto Seletivo. O IBS continua simbólico: <strong>0,05% estadual + 0,05% municipal</strong>. Em 2027 e 2028 a alíquota da CBS é reduzida em 0,1 ponto para compensar esse IBS.</p>
+                    <p>Começa a valer a opção do Simples Nacional pelo <strong>regime regular</strong> de IBS/CBS.</p>
+                </div>
+            </li>
+            <li class="tl-item buscavel" data-titulo="2028" data-de="2028" data-ate="2028">
+                <div class="tl-when">2028<span class="tl-now">Estamos aqui</span></div>
+                <div class="tl-body">
+                    <h3>Igual a 2027</h3>
+                    <p>Seguem as mesmas regras de 2027.</p>
+                </div>
+            </li>
+            <li class="tl-item buscavel" data-titulo="2029 a 2032 — troca gradual ICMS/ISS por IBS" data-de="2029" data-ate="2032">
+                <div class="tl-when">2029–2032<span class="tl-now">Estamos aqui</span></div>
+                <div class="tl-body">
+                    <h3>Troca gradual do ICMS e do ISS pelo IBS</h3>
+                    <p>O ICMS e o ISS caem para 90% da alíquota em 2029, 80% em 2030, 70% em 2031 e 60% em 2032. O IBS sobe na proporção inversa.</p>
+                </div>
+            </li>
+            <li class="tl-item buscavel" data-titulo="2033 — fim do ICMS e do ISS" data-de="2033" data-ate="9999">
+                <div class="tl-when">2033<small>a partir de 01/01</small><span class="tl-now">Estamos aqui</span></div>
+                <div class="tl-body">
+                    <h3>ICMS e ISS são extintos</h3>
+                    <p>O IBS passa a valer com a alíquota cheia.</p>
+                </div>
+            </li>
+        </ol>
+
+        <div class="block">
+            <h3 class="sub-title">ICMS e ISS ao longo da transição</h3>
+            <figure class="chart-card">
+                <p>Percentual da alíquota atual do ICMS e do ISS que continua valendo em cada ano. A partir de 2029 a parte que sai é ocupada pelo IBS.</p>
+                <div class="bars" role="img" aria-label="ICMS e ISS: 100% da alíquota de 2026 a 2028, 90% em 2029, 80% em 2030, 70% em 2031, 60% em 2032 e extintos em 2033.">
+                    <div class="bar" style="--v:100"><span class="bar-v">100%</span><div class="bar-fill"></div></div>
+                    <div class="bar" style="--v:100"><span class="bar-v">100%</span><div class="bar-fill"></div></div>
+                    <div class="bar" style="--v:100"><span class="bar-v">100%</span><div class="bar-fill"></div></div>
+                    <div class="bar is-step" style="--v:90"><span class="bar-v">90%</span><div class="bar-fill"></div></div>
+                    <div class="bar is-step" style="--v:80"><span class="bar-v">80%</span><div class="bar-fill"></div></div>
+                    <div class="bar is-step" style="--v:70"><span class="bar-v">70%</span><div class="bar-fill"></div></div>
+                    <div class="bar is-step" style="--v:60"><span class="bar-v">60%</span><div class="bar-fill"></div></div>
+                    <div class="bar is-zero" style="--v:0"><span class="bar-v">fim</span><div class="bar-fill"></div></div>
+                </div>
+                <div class="bar-years" aria-hidden="true">
+                    <span>2026</span><span>2027</span><span>2028</span><span>2029</span><span>2030</span><span>2031</span><span>2032</span><span>2033</span>
+                </div>
+                <figcaption class="chart-legend">
+                    <span><i style="background:#5d6070"></i>Alíquota integral</span>
+                    <span><i style="background:var(--laranja-claro)"></i>Redução gradual</span>
+                    <span><i style="border:1px dashed var(--ink-faint)"></i>Extinção</span>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="block">
+            <div class="note buscavel" data-titulo="Alíquotas de 2027 em diante são de referência">
+                <strong>Sobre as alíquotas de 2027 em diante:</strong> elas são <strong>de referência</strong> e dependem de resolução do Senado. Até a data de atualização deste conteúdo, a da CBS de 2027 não estava fixada. Para qualquer número de 2027 em diante, consulte o texto oficial da LC 214/2025, que já foi alterado pelas LC 224 e LC 227/2026, e valide com a sua contabilidade.
+            </div>
+        </div>
+
+        <div class="block">
+            <h3 class="sub-title">Datas que o Atua usa</h3>
+            <div class="date-list">
+                <div class="date-row buscavel" data-titulo="20/10/2025 — grupo IBS/CBS no XML do CT-e"><time datetime="2025-10-20">20/10/2025</time><p>O CT-e emitido em produção pode levar o grupo IBS/CBS no XML.</p></div>
+                <div class="date-row buscavel" data-titulo="01/01/2026 — NF-e e NFS-e bloqueadas sem os códigos"><time datetime="2026-01-01">01/01/2026</time><p>A NF-e (versão “4.00 + Ref. Trib.”) e a NFS-e passam a ser <strong>bloqueadas</strong> se faltarem os códigos de IBS/CBS. Antes era só aviso.</p></div>
+                <div class="date-row buscavel" data-titulo="31/08/2026 — inscrição SUFRAMA no XML do CT-e"><time datetime="2026-08-31">31/08/2026</time><p>A inscrição SUFRAMA do emitente na Zona Franca de Manaus e nas Áreas de Livre Comércio passa a ir no XML do CT-e.</p></div>
+                <div class="date-row buscavel" data-titulo="14/12/2026 — Valor Líquido da Prestação no XML do CT-e"><time datetime="2026-12-14">14/12/2026</time><p>O “Valor Líquido da Prestação” passa a ir no XML do CT-e em produção.</p></div>
+                <div class="date-row buscavel" data-titulo="01/01/2027 — regras de 2027 no sistema"><time datetime="2027-01-01">01/01/2027</time><p>Passam a valer as regras de 2027 no sistema: IBS/CBS somado ao valor do frete, campo <strong>Somar IBS/CBS na base</strong> do ICMS e opção <strong>Simples Nacional - Regime Regular</strong>.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ O QUE MUDA ============ -->
+<section class="reveal" id="muda" data-nome="O que muda">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">O que muda para o transportador</div>
+            <h2>Em 2026 o imposto aparece. Em 2027 ele entra no valor do frete.</h2>
+            <p>O ano de teste é informativo. A mudança que mexe com fatura, contrato e resultado começa em 01/01/2027.</p>
+        </div>
+
+        <div class="compare">
+            <div class="col-year buscavel" data-titulo="O que muda em 2026 (ano de teste)">
+                <div class="col-kicker">Ano de teste</div>
+                <h3>Em 2026</h3>
+                <ul class="item-list">
+                    <li><strong>Todo CT-e, NF-e e NFS-e sai com IBS e CBS destacados</strong>, com base, alíquota, valor, CST (situação tributária) e Classificação Tributária. É informativo: em 2026 nada muda no valor cobrado do cliente.</li>
+                    <li><strong>A base de cálculo do IBS/CBS é o valor total do frete menos os tributos atuais:</strong> ICMS, DIFAL, FCP, PIS, COFINS e ISS. Por isso os cadastros de PIS/COFINS e ICMS influenciam direto no valor do IBS/CBS.</li>
+                    <li><strong>Cada operação precisa da classificação certa.</strong> Frete de carga para exportação é <strong>imune</strong> (CST 410), frete entre cooperativas tem tratamento próprio, e assim por diante. Classificação errada no XML gera informação fiscal errada.</li>
+                    <li><strong>Simples Nacional:</strong> não destaca IBS/CBS em 2026.</li>
+                </ul>
+            </div>
+
+            <div class="col-year is-2027 buscavel" data-titulo="O que muda a partir de 2027">
+                <div class="col-kicker">Cobrança de fato</div>
+                <h3>A partir de 2027</h3>
+                <ul class="item-list">
+                    <li><strong>O IBS/CBS passa a ser somado ao valor do frete.</strong> O total cobrado do tomador passa a incluir a CBS e o IBS. Isso altera o valor da fatura, dos títulos a receber, a base de comissão e o resultado.</li>
+                    <li><strong>O ICMS do frete passa a incidir também sobre o IBS/CBS</strong>, conforme o campo <strong>Somar IBS/CBS na base</strong> das alíquotas de ICMS.</li>
+                    <li><strong>PIS e COFINS acabam.</strong> A CBS passa a ser recolhida de fato, e as exportações para a contabilidade deixam de contar o tributo como receita.</li>
+                    <li><strong>Contrato de frete / CIOT:</strong> o valor do frete enviado à administradora do CIOT (E-Frete) sai <strong>sem</strong> o IBS/CBS.</li>
+                    <li><strong>Crédito nas compras:</strong> como o IBS/CBS não é cumulativo, o imposto pago em combustível, peças e serviços vira crédito. O Atua já separa o IBS/CBS das despesas lançadas.</li>
+                    <li><strong>Simples Nacional:</strong> a empresa escolhe entre continuar no <strong>Simples Nacional - Padrão</strong>, que não destaca IBS/CBS, e o <strong>Simples Nacional - Regime Regular</strong>, que destaca IBS/CBS e permite que o tomador tome crédito. Essa escolha é decisão da contabilidade.</li>
+                    <li><strong>Transportador autônomo (TAC):</strong> a LC 214/2025 prevê crédito presumido de IBS/CBS para quem contrata frete de transportador autônomo pessoa física não contribuinte. Confira o artigo com a contabilidade. <strong>O Atua ainda não trata esse crédito.</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="block">
+            <h3 class="sub-title">Base de cálculo do IBS/CBS no frete</h3>
+            <div class="chart-card buscavel" data-titulo="Base de cálculo do IBS/CBS no frete">
+                <p>O sistema parte do valor total do frete e desconta os tributos atuais. Qualquer ajuste nos cadastros de ICMS e de PIS/COFINS muda o IBS/CBS calculado.</p>
+                <div class="formula" aria-label="Base do IBS/CBS é igual ao valor total do frete menos ICMS, DIFAL, FCP, PIS, COFINS e ISS">
+                    <span class="is-res">Base IBS/CBS</span><i>=</i>
+                    <span>Valor total do frete</span><i>−</i>
+                    <span>ICMS</span><i>−</i><span>DIFAL</span><i>−</i><span>FCP</span><i>−</i><span>PIS</span><i>−</i><span>COFINS</span><i>−</i><span>ISS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <div class="important-title">Prepare-se para 2027</div>
+            <div class="important-text">
+                Como o IBS e a CBS passam a ser somados ao frete, <strong>revise as tabelas de frete e os contratos com os clientes</strong> antes de 01/01/2027. O total do CT-e, a fatura e os títulos a receber vão refletir o imposto.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONFIGURAÇÕES NO ATUA ============ -->
+<section class="reveal" id="config" data-nome="No Atua">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">Configurações no Atua</div>
+            <h2>O que conferir no sistema, documento por documento</h2>
+            <p>Escolha o assunto. Em 2026 a maior parte já vem pronta: o trabalho é revisar o regime da empresa e preencher os códigos da NFS-e e da NF-e.</p>
+        </div>
+
+        <div class="guide-panel">
+            <div class="tablist" role="tablist" aria-label="Assuntos de configuração">
+                <button type="button" class="tab" role="tab" id="tab-geral" aria-controls="painel-geral" aria-selected="true">Revisões gerais</button>
+                <button type="button" class="tab" role="tab" id="tab-cte" aria-controls="painel-cte" aria-selected="false" tabindex="-1">CT-e</button>
+                <button type="button" class="tab" role="tab" id="tab-nfse" aria-controls="painel-nfse" aria-selected="false" tabindex="-1">NFS-e</button>
+                <button type="button" class="tab" role="tab" id="tab-nfe" aria-controls="painel-nfe" aria-selected="false" tabindex="-1">NF-e</button>
+                <button type="button" class="tab" role="tab" id="tab-mdfe" aria-controls="painel-mdfe" aria-selected="false" tabindex="-1">MDF-e</button>
+                <button type="button" class="tab" role="tab" id="tab-fin" aria-controls="painel-fin" aria-selected="false" tabindex="-1">Financeiro e despesas</button>
+                <button type="button" class="tab" role="tab" id="tab-rumo" aria-controls="painel-rumo" aria-selected="false" tabindex="-1">Add-on Rumo</button>
+                <button type="button" class="tab" role="tab" id="tab-rel" aria-controls="painel-rel" aria-selected="false" tabindex="-1">Relatórios e integrações</button>
+                <button type="button" class="tab" role="tab" id="tab-perm" aria-controls="painel-perm" aria-selected="false" tabindex="-1">Permissões</button>
+            </div>
+
+            <!-- ---- GERAL ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-geral" aria-labelledby="tab-geral" data-aba="Revisões gerais">
+                <h3 class="panel-title">Revisões gerais</h3>
+                <p class="panel-lede">Valem para todos os documentos. Comece por aqui.</p>
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" data-titulo="Tributação Federal (regime da empresa)">
+                        <div class="cfg-path">Segurança » Parâmetro » Empresa Grupo</div>
+                        <div class="cfg-field">Tributação Federal</div>
+                        <p>Confira o regime de cada empresa do grupo. Opções: <strong>Lucro Real</strong>, <strong>Lucro Presumido</strong>, <strong>Simples Nacional - Padrão</strong> e <strong>Simples Nacional - Regime Regular</strong>.</p>
+                        <p>Destacam IBS/CBS: Lucro Real, Lucro Presumido, Regime Regular e o campo em branco. <strong>Simples Nacional - Padrão não destaca</strong>, nem em 2026 nem em 2027.</p>
+                        <p>O Regime Regular só pode ser escolhido a partir de 01/01/2027: antes disso a opção não aparece. Valide o regime com a contabilidade.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Alíquotas PIS, COFINS e CBS (%)">
+                        <div class="cfg-path">Tabela Imposto Federal (antiga “Tabela PIS/COFINS”)</div>
+                        <div class="cfg-field">Alíquotas PIS, COFINS e CBS (%)</div>
+                        <p>PIS/COFINS de acordo com o regime: Lucro Presumido <span class="code">0,65% / 3,00%</span>, Lucro Real <span class="code">1,65% / 7,60%</span>.</p>
+                        <p>A <strong>CBS (%)</strong> de 0,90%, com vigência a partir de 01/01/2026, já vem cadastrada pelo Atua.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Paga PIS/COFINS Pedágio e Paga PIS/COFINS ICMS">
+                        <div class="cfg-path">Segurança » Parâmetro » Imposto Federal » Manutenção de Parâmetro Imposto Federal</div>
+                        <div class="cfg-field">Paga PIS Pedágio, Paga COFINS Pedágio, Paga PIS ICMS, Paga COFINS ICMS</div>
+                        <p>Definem se o pedágio e o ICMS entram na base do PIS/COFINS. Como o PIS/COFINS é descontado da base do IBS/CBS, eles mudam o IBS/CBS de forma indireta.</p>
+                        <p>Em <strong>Paga PIS ICMS</strong> e <strong>Paga COFINS ICMS</strong>, o que estiver no Parâmetro Empresa Grupo prevalece.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Class. Trib. IBS/CBS Mercadoria Destinada Exportação">
+                        <div class="cfg-path">Segurança » Parâmetro » Imposto Federal » Manutenção de Parâmetro Imposto Federal</div>
+                        <div class="cfg-field">Class. Trib. IBS/CBS Mercadoria Destinada Exportação</div>
+                        <p>O código usado no frete de mercadoria para exportação: <span class="code">410004</span> ou <span class="code">410027</span>. O padrão é 410027.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- CT-e ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-cte" aria-labelledby="tab-cte" data-aba="CT-e">
+                <h3 class="panel-title">CT-e</h3>
+                <p class="panel-lede"><strong>Em 2026 não é preciso cadastrar alíquota nem base.</strong> O que define o IBS/CBS do CT-e é a versão do documento e a classificação da operação.</p>
+
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item cfg-wide buscavel" data-titulo="Versão do CT-e (4.00 + Ref. Trib.)">
+                        <div class="cfg-path">Parâmetro Filial · cadastro do Cliente</div>
+                        <div class="cfg-field">Versão do CT-e</div>
+                        <p>O IBS/CBS só vai no XML com a versão <strong>“4.00 + Ref. Trib.”</strong>, que hoje é a única opção. A versão fica no <strong>Parâmetro Filial</strong>, mas a <strong>Versão CT-e</strong> do cadastro do <strong>Cliente</strong> (tomador) prevalece.</p>
+                    </div>
+                </div>
+
+                <div class="panel-block buscavel" data-titulo="Como o sistema escolhe o CST e a Classificação Tributária do CT-e">
+                    <h4 class="sub-title">Como o sistema escolhe o CST e a Classificação Tributária</h4>
+                    <p class="panel-lede" style="margin:0 0 14px">O sistema testa as regras nesta ordem e usa a primeira que se aplicar.</p>
+                    <ol class="steps">
+                        <li><strong>Add-on Classificação Tributária Rumo.</strong> Se o add-on está ativo, vale a classificação devolvida por ele.</li>
+                        <li><strong>Cooperativa</strong> → <span class="code">CST 200</span> <span class="code">200020</span>, quando a atividade econômica da filial <strong>e</strong> a do tomador são de cooperativa.</li>
+                        <li><strong>Exportação</strong> → <span class="code">CST 410</span> com o código do campo Class. Trib. IBS/CBS Mercadoria Destinada Exportação, quando a emissão está com <strong>Merc. Dest. Exportação = Sim</strong>. Base e alíquotas ficam zeradas, porque é imune.</li>
+                        <li><strong>Demais casos</strong> → tributação integral, <span class="code">CST 000</span> <span class="code">000001</span>.</li>
+                    </ol>
+                    <div class="note" style="margin-top:14px">
+                        <strong>Não existe regra de IBS/CBS por cliente, tabela de frete, operação fiscal ou CFOP.</strong> Também não há parâmetro para isenção, diferimento ou redução de alíquota. Redução só acontece quando a classificação vem da Rumo ou é ajustada à mão.
+                    </div>
+                </div>
+
+                <div class="panel-block cfg-list">
+                    <!-- PENDENTE (levantamento 6.2): confirmar em base de teste a gravação da aba IBS / CBS do CTRC antes de publicar este card -->
+                    <div class="cfg-item buscavel" data-titulo="Ajuste manual do IBS/CBS antes da autorização">
+                        <div class="cfg-path">CTRC » aba IBS / CBS (Manutenção de IBS / CBS do CTRC)</div>
+                        <div class="cfg-field">Ajuste manual antes da autorização</div>
+                        <p>Permite alterar CST, Classificação Tributária, Vl. Base, Vl. IBS UF, Vl. IBS Mun. e Vl. CBS.</p>
+                        <p><strong>Atenção:</strong> qualquer recálculo do CTRC antes da autorização sobrescreve o que foi digitado. Depois de autorizado, cancelado, inutilizado ou denegado, nada mais é recalculado.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Onde ver o IBS/CBS do CT-e e o link XML - Reforma">
+                        <div class="cfg-path">Tela de emissão · Extrato do CTRC</div>
+                        <div class="cfg-field">Onde ver o IBS/CBS</div>
+                        <p>No resumo IBS / CBS da tela de emissão, logo abaixo do ICMS, e no <strong>Extrato do CTRC</strong>.</p>
+                        <p>O extrato tem o link <strong>XML - Reforma</strong>, uma cópia do XML com as novas tags e <strong>sem valor fiscal</strong>, útil para quem pede exemplo. O link só aparece em documento autorizado sem IBS/CBS gravado e para quem pode alterar o Parâmetro Filial.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="CT-e de anulação">
+                        <div class="cfg-path">Emissão de CT-e</div>
+                        <div class="cfg-field">CT-e de anulação</div>
+                        <p>Repete o IBS/CBS do CT-e original.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="CT-e de Adiantamento e CT-e de Fornecimento">
+                        <div class="cfg-path">Emissão de CT-e · Extrato de Antecipação de Valor</div>
+                        <div class="cfg-field">CT-e de Adiantamento / Fornecimento</div>
+                        <p>Usados na antecipação de pagamento. O CT-e de Fornecimento referencia até 99 adiantamentos. O consumo fica no <strong>Extrato de Antecipação de Valor</strong>, com o IBS UF, o IBS Mun. e a CBS utilizados.</p>
+                    </div>
+                </div>
+
+                <div class="panel-block">
+                    <h4 class="sub-title">A partir de 2027</h4>
+                    <div class="cfg-list">
+                        <div class="cfg-item buscavel" data-titulo="IBS/CBS no valor total do CT-e a partir de 2027">
+                            <div class="cfg-path">XML e DACTE</div>
+                            <div class="cfg-field">IBS e CBS no valor total</div>
+                            <p>O IBS e a CBS entram como componentes no <strong>valor total</strong> do CT-e. O “Total do Serviço” impresso no DACTE sai sem eles.</p>
+                        </div>
+                        <div class="cfg-item buscavel" data-titulo="Somar IBS/CBS na base do ICMS">
+                            <div class="cfg-path">Alíquotas de ICMS (por UF, por atividade e por produto transportado)</div>
+                            <div class="cfg-field">Somar IBS/CBS na base</div>
+                            <p>Com vigência a partir de 01/01/2027, define se o IBS/CBS entra na base do ICMS. <strong>Em branco, soma.</strong> Gravar esse campo com vigência anterior a 01/01/2027 dá erro.</p>
+                        </div>
+                        <div class="cfg-item buscavel" data-titulo="Simular Regras RT 2027 (homologação)">
+                            <div class="cfg-path">Parâmetro Filial » bloco do CT-e</div>
+                            <div class="cfg-field">Simular Regras RT 2027</div>
+                            <p><strong>Só em homologação.</strong> Simula as regras de 2027, com o IBS/CBS somado ao valor total e à base do ICMS. Desliga sozinho quando o ambiente passa para produção.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- NFS-e ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-nfse" aria-labelledby="tab-nfse" data-aba="NFS-e">
+                <h3 class="panel-title">NFS-e</h3>
+                <p class="panel-lede">Os códigos de IBS/CBS da NFS-e ficam no cadastro do Serviço Prestado.</p>
+
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" data-titulo="Serviço Prestado — bloco IBS / CBS (NBS, Classificação, Indicador)">
+                        <div class="cfg-path">Fiscal » Serviço Prestado (Manutenção de Serviço Prestado) » bloco IBS / CBS</div>
+                        <div class="cfg-field">Campos a preencher</div>
+                        <ul class="item-list">
+                            <li><strong>Código NBS</strong></li>
+                            <li><strong>Classificação Tributária</strong></li>
+                            <li><strong>Código Indicador da Operação</strong></li>
+                            <li><strong>Serviço de Transporte</strong> (Sim/Não) e <strong>Finalidade</strong> (Regular / Crédito / Débito)</li>
+                        </ul>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Obrigatoriedade IBS / CBS na emissão da NFS-e">
+                        <div class="cfg-path">Emissão de NFS-e</div>
+                        <div class="cfg-field">A cobrança acontece na emissão</div>
+                        <p>O cadastro aceita esses campos em branco. Quem exige é a emissão:</p>
+                        <ul class="item-list">
+                            <li><strong>Pela E-Notas:</strong> para Lucro Real, Lucro Presumido e Simples Regime Regular, a partir de 01/01/2026, a emissão para com a mensagem abaixo e um link <strong>Corrigir</strong>.</li>
+                            <li><strong>Pelo padrão nacional:</strong> o Código NBS e o Indicador da Operação são sempre exigidos.</li>
+                        </ul>
+                        <div class="msg-list"><div class="msg err">Obrigatoriedade IBS / CBS: Preencha o campo … no cadastro do Serviço Prestado!</div></div>
+                    </div>
+                    <div class="cfg-item cfg-wide buscavel" data-titulo="Uma combinação de códigos por Serviço Prestado">
+                        <div class="cfg-path">Fiscal » Serviço Prestado</div>
+                        <div class="cfg-field">Uma combinação de códigos por Serviço Prestado</div>
+                        <p>Se a empresa presta serviços com NBS ou indicador diferentes, cadastre um Serviço Prestado para cada um e diferencie pelo nome. Exemplo:</p>
+                        <div class="table-wrap" style="margin-top:12px">
+                            <table class="g-table is-wide">
+                                <thead><tr><th>Nome do serviço</th><th>Serviço</th><th>NBS</th><th>Class.</th><th>Indicador</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Transporte rodoviário de carga sólida a granel</td><td class="mono">16.02</td><td class="mono">105011110</td><td class="mono">000001</td><td class="mono">70100</td></tr>
+                                    <tr><td>Transporte rodoviário de carga solta, não unitizada</td><td class="mono">16.02</td><td class="mono">105011210</td><td class="mono">000001</td><td class="mono">70100</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Finalidade Crédito ou Débito na NFS-e">
+                        <div class="cfg-path">Fiscal » Serviço Prestado</div>
+                        <div class="cfg-field">Finalidade Crédito ou Débito</div>
+                        <p>Exige Serviço de Transporte = <strong>Não</strong> e Classificação <span class="code">800001</span>, <span class="code">800002</span>, <span class="code">811001</span> ou <span class="code">811002</span>.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Cálculo do IBS/CBS pela E-Notas e tabelas oficiais da NFS-e">
+                        <div class="cfg-path">Integração E-Notas · Portal da NFS-e</div>
+                        <div class="cfg-field">Cálculo e escolha dos códigos</div>
+                        <p>Para a E-Notas o sistema envia os códigos, e o valor do IBS/CBS é calculado pela integradora.</p>
+                        <p>Para escolher os códigos, use as tabelas oficiais de correlação item × NBS × indicador × classificação e de indicadores de operação, no <a class="doc-link" href="https://www.gov.br/nfse/pt-br" target="_blank" rel="noopener noreferrer">portal da NFS-e</a>, e valide com a contabilidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- NF-e ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-nfe" aria-labelledby="tab-nfe" data-aba="NF-e">
+                <h3 class="panel-title">NF-e</h3>
+                <p class="panel-lede">Na NF-e, o IBS/CBS vem de uma regra cadastrada em cada produto.</p>
+
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" data-titulo="Produto — aba IBS / CBS (regra por produto)">
+                        <div class="cfg-path">Nota Fiscal » Produto (ou Cadastro » Diversos » Produto) » aba IBS / CBS</div>
+                        <div class="cfg-field">Regra de IBS/CBS do produto</div>
+                        <p>Crie a regra com:</p>
+                        <ul class="item-list">
+                            <li><strong>Dt. Vigência</strong>, a data a partir da qual a regra vale;</li>
+                            <li><strong>Operação Fiscal</strong>, <strong>CFOP</strong> e <strong>UF Destino</strong>, que permitem regras diferentes para o mesmo produto;</li>
+                            <li><strong>CST</strong> e <strong>Classificação Tributária</strong>;</li>
+                            <li><strong>CST Regular</strong> e <strong>Classificação Tributária Regular</strong>, que o sistema preenche e não aceitam digitação;</li>
+                            <li>Observação.</li>
+                        </ul>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Não foi encontrado parâmetro vigente de IBS / CBS para o produto">
+                        <div class="cfg-path">Emissão de NF-e</div>
+                        <div class="cfg-field">Produto sem regra vigente</div>
+                        <p>Aparece a mensagem:</p>
+                        <div class="msg-list"><div class="msg err">Não foi encontrado parâmetro vigente de IBS / CBS para o produto …</div></div>
+                        <ul class="item-list">
+                            <li>É <strong>erro</strong> (bloqueia a emissão) para Lucro Real, Lucro Presumido e Simples Regime Regular, com a versão “4.00 + Ref. Trib.” e emissão a partir de 01/01/2026.</li>
+                            <li>Nos demais casos é aviso.</li>
+                        </ul>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Versão da NF-e (4.00 + Ref. Trib.)">
+                        <div class="cfg-path">Segurança » Parâmetro » Filial » Manutenção de Parâmetro Filial</div>
+                        <div class="cfg-field">Versão da NF-e</div>
+                        <p><strong>“4.00 + Ref. Trib.”</strong> é hoje a única opção.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Finalidade Crédito / Débito na Operação Fiscal (NF-e)">
+                        <div class="cfg-path">Fiscal » Operação Fiscal</div>
+                        <div class="cfg-field">Finalidade Crédito / Débito</div>
+                        <p>É a nova finalidade de NF-e, com tipos como Multa e juros, Transferência de crédito na sucessão, Perda em estoque e Desenquadramento do Simples Nacional.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="XML - Reforma e Simular Regras RT 2027 na NF-e">
+                        <div class="cfg-path">Extrato de Nota Fiscal · Parâmetro Filial » bloco da NF-e</div>
+                        <div class="cfg-field">XML - Reforma e simulação de 2027</div>
+                        <p>O <strong>Extrato de Nota Fiscal</strong> também tem o link <strong>XML - Reforma</strong>, sem valor fiscal.</p>
+                        <p><strong>Simular Regras RT 2027</strong> também existe no bloco da NF-e do Parâmetro Filial, só em homologação.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Imposto Seletivo na NF-e">
+                        <div class="cfg-path">XML da NF-e</div>
+                        <div class="cfg-field">Imposto Seletivo</div>
+                        <p>Ainda não vai no XML da NF-e.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- MDF-e ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-mdfe" aria-labelledby="tab-mdfe" data-aba="MDF-e">
+                <h3 class="panel-title">MDF-e</h3>
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item cfg-wide buscavel" data-titulo="MDF-e não exige configuração de IBS/CBS">
+                        <div class="cfg-path">Emissão de MDF-e</div>
+                        <div class="cfg-field">Nada a configurar</div>
+                        <p>O MDF-e <strong>não tem</strong> campos de IBS/CBS e não exige configuração.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- FINANCEIRO ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-fin" aria-labelledby="tab-fin" data-aba="Financeiro e despesas">
+                <h3 class="panel-title">Financeiro, despesas e cooperativas</h3>
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" data-titulo="Apuração IBS/CBS Despesa (créditos)">
+                        <div class="cfg-path">Parâmetro Geral</div>
+                        <div class="cfg-field">Apuração IBS/CBS Despesa</div>
+                        <p>Com <strong>Sim</strong>, o lançamento de despesas mostra os <strong>Dados de IBS/CBS</strong> por produto e no total. As integrações de abastecimento preenchem esses dados a partir do XML da NF-e de compra.</p>
+                        <p>Isso dá base para controlar os créditos.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Exportação Associados - Regime Específico IBS/CBS Cooperativas">
+                        <div class="cfg-path">Menu “Associados - IBS/CBS Cooperativas”</div>
+                        <div class="cfg-field">Exportação Associados - Regime Específico IBS/CBS Cooperativas</div>
+                        <p>É a exportação para cooperativas. Filtros: <strong>Dt. Base</strong> e <strong>Empresa Grupo</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- RUMO ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-rumo" aria-labelledby="tab-rumo" data-aba="Add-on Rumo">
+                <h3 class="panel-title">Add-on Classificação Tributária Rumo</h3>
+                <p class="panel-lede">A <strong>Rumo Brasil</strong> é uma consultoria tributária de transporte. A API dela lê a NF-e da carga e devolve o CST e a Classificação Tributária do frete. O Atua aplica essa classificação ao CT-e. <a class="doc-link" href="https://wiki.atua.com.br:8028/pt-br/Atua-Store/Add-ons/classificacao-tributaria-rumo" target="_blank" rel="noopener noreferrer">Ver a documentação na wiki ↗</a></p>
+
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" data-titulo="Ativação do add-on Rumo na Atua Store">
+                        <div class="cfg-path">Portal do Cliente » Atua Store</div>
+                        <div class="cfg-field">Ativação</div>
+                        <p>Ative no Atua Store, pelo Portal do Cliente. Com o add-on ativo, aparece o bloco <strong>Rumo - Classificação Tributária</strong> no <strong>Parâmetro Empresa Grupo</strong>.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="API Key Rumo">
+                        <div class="cfg-path">Parâmetro Empresa Grupo » bloco Rumo - Classificação Tributária</div>
+                        <div class="cfg-field">API Key Rumo</div>
+                        <p>É configurada por empresa do grupo. Depois de gravada, fica oculta. A opção <strong>Remover a API Key gravada</strong> apaga a chave, e ela não é copiada quando se duplica o parâmetro de outra empresa.</p>
+                        <p>A tela avisa que <strong>cada consulta pode ser cobrada</strong>.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="Quando o Atua consulta a Rumo">
+                        <div class="cfg-path">Recebimento de NF-e · gravação do CT-e</div>
+                        <div class="cfg-field">Quando consulta</div>
+                        <ul class="item-list">
+                            <li>Ao receber a NF-e completa (por SEFAZ, e-mail ou importação), em segundo plano.</li>
+                            <li>Ao gravar o CT-e, se a nota ainda não tiver sido classificada.</li>
+                        </ul>
+                        <p style="margin-top:10px">CT-e já autorizado, cancelado, inutilizado ou denegado não é reconsultado.</p>
+                    </div>
+                    <div class="cfg-item buscavel" data-titulo="A classificação da Rumo prevalece; CT-e com várias notas">
+                        <div class="cfg-path">Emissão de CT-e</div>
+                        <div class="cfg-field">O que prevalece</div>
+                        <p><strong>A classificação da Rumo prevalece</strong> sobre todos os parâmetros do sistema, só para o IBS/CBS. ICMS e demais tributos seguem as regras atuais.</p>
+                        <p><strong>CT-e com várias notas:</strong> vale a NF-e de <strong>maior peso</strong>. No empate, a de maior quantidade. Só entram NF-e modelo 55 com chave.</p>
+                    </div>
+                    <div class="cfg-item cfg-wide buscavel" data-titulo="Mensagens da Rumo na área IBS / CBS">
+                        <div class="cfg-path">Tela de emissão · Extrato do CTRC » área IBS / CBS</div>
+                        <div class="cfg-field">Mensagens que você vai ver</div>
+                        <div class="msg-list">
+                            <div class="msg ok">Classificação obtida via integração Rumo</div>
+                            <div class="msg">Notas com classificações diferentes — utilizada a nota de maior peso</div>
+                            <div class="msg err">Classificação pelos parâmetros do sistema — consulta à Rumo sem retorno</div>
+                        </div>
+                        <p style="margin-top:10px">A mensagem em vermelho vem acompanhada do motivo.</p>
+                    </div>
+                    <!-- PENDENTE (levantamento 6.2): conferir em base de teste o campo "Atualiza campo Merc. Dest. Exportação" antes de publicar este card -->
+                    <div class="cfg-item cfg-wide buscavel" data-titulo="Atualiza campo Merc. Dest. Exportação (Rumo)">
+                        <div class="cfg-path">Parâmetro Empresa Grupo » bloco Rumo - Classificação Tributária</div>
+                        <div class="cfg-field">Atualiza campo Merc. Dest. Exportação</div>
+                        <p>Compara o código devolvido pela Rumo com o do campo Class. Trib. IBS/CBS Mercadoria Destinada Exportação. As opções são:</p>
+                        <ul class="item-list">
+                            <li><strong>Sim</strong> (padrão): marca Merc. Dest. Exportação = Sim quando os códigos são iguais e Não quando são diferentes, e refaz o PIS/COFINS.</li>
+                            <li><strong>Não, somente avisar:</strong> só mostra o aviso.</li>
+                            <li><strong>Não:</strong> não faz nada.</li>
+                        </ul>
+                        <p style="margin-top:10px">Como esse campo também mexe no ICMS e no PIS/COFINS (até 31/12/2026), ele ajuda a classificar esses tributos como exportação.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- RELATÓRIOS ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-rel" aria-labelledby="tab-rel" data-aba="Relatórios e integrações">
+                <h3 class="panel-title">Relatórios, EDI, contabilidade e importação</h3>
+                <p class="panel-lede">Onde o IBS e a CBS já aparecem fora da emissão.</p>
+                <div class="panel-block table-wrap buscavel" data-titulo="Relatórios, EDI CONEMB/DOCCOB, contabilidade, SPED e importação de XML">
+                    <table class="g-table">
+                        <thead><tr><th>Recurso</th><th>O que traz de IBS/CBS</th></tr></thead>
+                        <tbody>
+                            <tr><td>CTRC Detalhado <span style="font-weight:400;color:var(--ink-faint)">(Emissão Doc. » Relatório)</span></td><td>Colunas IBS e CBS, com total</td></tr>
+                            <tr><td>CTRC Sumarizado</td><td>IBS e CBS</td></tr>
+                            <tr><td>Caixa Detalhado</td><td>IBS/CBS das despesas</td></tr>
+                            <tr><td>EDI CONEMB</td><td>Base, % e valor de CBS, IBS estadual e IBS municipal</td></tr>
+                            <tr><td>EDI DOCCOB</td><td>Totais de CBS, IBS UF e IBS Municipal por título</td></tr>
+                            <tr><td>Exportação Contabilidade XML</td><td>Opção “XML - CT-e Reforma (IBS/CBS)”</td></tr>
+                            <tr><td>Importação de XML de CT-e e de NF-e</td><td>Grava os novos impostos</td></tr>
+                            <tr><td>Exportações contábeis <span style="font-weight:400;color:var(--ink-faint)">(Questor, Prosoft, Datacoper, padrão)</span></td><td>Ainda não exportam IBS/CBS. A partir de 2027 só tiram o tributo da receita</td></tr>
+                            <tr><td>SPED EFD</td><td>O IBS/CBS fica no valor do documento e fora do valor da operação</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ---- PERMISSÕES ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-perm" aria-labelledby="tab-perm" data-aba="Permissões">
+                <h3 class="panel-title">Permissões</h3>
+                <p class="panel-lede">Funções que o usuário precisa ter para ver e alterar o que foi citado neste guia.</p>
+                <div class="panel-block table-wrap buscavel" data-titulo="Permissões (funções) usadas na Reforma Tributária">
+                    <table class="g-table">
+                        <thead><tr><th>Função</th><th>Para quê</th></tr></thead>
+                        <tbody>
+                            <tr><td class="mono">ctrc</td><td>Extrato do CTRC (Início » Emissão Doc. » CTRCs Emitidos » Extrato de CTRC)</td></tr>
+                            <tr><td class="mono">parametro_filial</td><td>Parâmetro Filial (versões e Simular Regras RT 2027). Também libera o link XML - Reforma</td></tr>
+                            <tr><td class="mono">parametro_empresa_grupo</td><td>Tributação Federal e o bloco Rumo</td></tr>
+                            <tr><td class="mono">parametro_imposto_federal</td><td>Parâmetro Imposto Federal</td></tr>
+                            <tr><td>Liberação do add-on Classificação Tributária Rumo</td><td>Exibe e usa o bloco Rumo</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="reveal" id="faq" data-nome="Perguntas frequentes">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">Perguntas frequentes</div>
+            <h2>Dúvidas comuns sobre IBS e CBS no Atua</h2>
+            <p>Clique em uma pergunta para ver a resposta. Use a busca no topo para filtrar por tema.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button type="button" class="faq-q">Preciso cadastrar alíquota de IBS/CBS em 2026?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Não. O IBS de 0,1% é fixo no sistema, e a CBS de 0,9% já vem cadastrada.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Em 2026 eu preciso recolher o IBS e a CBS?</button>
+                <div class="faq-a"><div class="faq-content">
+                    2026 é o ano de teste. O recolhimento fica dispensado para quem cumpre as obrigações acessórias, ou seja, para quem emite os documentos com as novas informações. ICMS, ISS, PIS e COFINS continuam sendo calculados e pagos normalmente. Confirme a situação da sua empresa com a contabilidade.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Meu CT-e saiu sem IBS/CBS. Por quê?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Confira, nesta ordem:
+                    <ol>
+                        <li>a <strong>Tributação Federal</strong> da empresa: Simples Nacional - Padrão não destaca;</li>
+                        <li>a <strong>versão do CT-e</strong> do cliente e da filial: tem que ser “4.00 + Ref. Trib.”;</li>
+                        <li>se a emissão é de <strong>exportação</strong>, em que base e alíquota ficam zeradas.</li>
+                    </ol>
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Meu CT-e saiu com CST 410 (ou 200). O que significa?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Ele está marcado como mercadoria para exportação (CST 410) ou a filial e o tomador são cooperativas (CST 200).
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Como é calculada a base do IBS/CBS no CT-e?</button>
+                <div class="faq-a"><div class="faq-content">
+                    A base é o valor total do frete menos os tributos atuais: ICMS, DIFAL, FCP, PIS, COFINS e ISS. Por isso os cadastros de PIS/COFINS e de ICMS influenciam direto no valor do IBS/CBS.
+                </div></div>
+            </div>
+
+            <!-- PENDENTE (levantamento 6.2): depende da aba IBS / CBS do CTRC, a confirmar em base de teste -->
+            <div class="faq-item">
+                <button type="button" class="faq-q">Ajustei o IBS/CBS à mão e o valor voltou. O que houve?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Qualquer recálculo do CTRC antes da autorização refaz o IBS/CBS. Ajuste por último, imediatamente antes de autorizar.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">A NFS-e ou a NF-e não emite e pede IBS/CBS. Como resolvo?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Desde 01/01/2026 os códigos são obrigatórios. Na NFS-e, preencha o bloco IBS / CBS do <strong>Serviço Prestado</strong>. Na NF-e, crie a regra na aba <strong>IBS / CBS do Produto</strong>.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Presto serviços com NBS diferentes. Como cadastro na NFS-e?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Cada Serviço Prestado guarda uma combinação de códigos. Cadastre um Serviço Prestado para cada combinação de NBS e indicador, e diferencie pelo nome.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Sou do Simples Nacional. Preciso fazer algo?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Em 2026, não. Para 2027, decida com a contabilidade entre o Simples Nacional - Padrão, que não destaca IBS/CBS, e o Simples Nacional - Regime Regular, que destaca e permite que o tomador tome crédito.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">O valor do frete vai mudar?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Em 2026, não. Em 2027 o IBS/CBS passa a ser somado ao total do CT-e. Revise as tabelas de frete e os contratos com os clientes.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">O valor enviado no contrato de frete / CIOT muda em 2027?</button>
+                <div class="faq-a"><div class="faq-content">
+                    O valor do frete enviado à administradora do CIOT (E-Frete) sai sem o IBS/CBS.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">O IBS/CBS que pago nas compras vira crédito?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Sim. Como o IBS/CBS não é cumulativo, o imposto pago em combustível, peças e serviços vira crédito. Com o parâmetro <strong>Apuração IBS/CBS Despesa</strong> em Sim, o lançamento de despesas mostra os dados de IBS/CBS por produto e no total, e as integrações de abastecimento preenchem esses dados a partir do XML da NF-e de compra.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Uso o add-on Rumo e meu CT-e tem notas com classificações diferentes. Qual vale?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Vale a NF-e de maior peso. No empate, a de maior quantidade. Só entram NF-e modelo 55 com chave. A área IBS / CBS mostra o aviso “Notas com classificações diferentes — utilizada a nota de maior peso”.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">O MDF-e precisa de alguma configuração?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Não. O MDF-e não tem campos de IBS/CBS e não exige configuração.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Posso testar as regras de 2027 antes de 01/01/2027?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Sim, em homologação. O parâmetro <strong>Simular Regras RT 2027</strong>, no Parâmetro Filial, simula o IBS/CBS somado ao valor total e à base do ICMS. Ele desliga sozinho quando o ambiente passa para produção.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Um cliente pediu um XML com as tags da reforma. Como envio?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Use o link <strong>XML - Reforma</strong> do extrato do CTRC ou da Nota Fiscal. O arquivo não tem valor fiscal.
+                </div></div>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <div class="important-title">Ao acionar o suporte</div>
+            <div class="important-text">
+                Registre a demanda via ticket e descreva com o <strong>maior nível de detalhamento possível</strong>: documento ou processo envolvido, prints da tela com a situação apresentada e o contexto da operação. Quanto mais completas forem as informações, mais rápido será o atendimento.
+            </div>
+        </div>
+        <div class="warning-box">
+            <div class="warning-title">Valide com a sua contabilidade</div>
+            <div class="warning-text">
+                Este material é um guia operacional do sistema. Regime tributário, classificação das operações e alíquotas de 2027 em diante são decisões fiscais: confira sempre com a contabilidade e com o texto oficial da legislação.
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="brand-mark">REFORMA <b>TRIBUTÁRIA</b></span>
+                <p class="footer-about">Portal de dúvidas sobre a Reforma Tributária no Atua: IBS e CBS, cronograma da transição, impacto para o transportador e configurações do sistema.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#ajuda">Buscar dúvida</a></li>
+                    <li><a href="#reforma">A reforma</a></li>
+                    <li><a href="#cronograma">Cronograma</a></li>
+                    <li><a href="#muda">O que muda</a></li>
+                    <li><a href="#config">Configurações no Atua</a></li>
+                    <li><a href="#faq">Perguntas frequentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legislação e documentação</h4>
+                <ul>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp214.htm" target="_blank" rel="noopener noreferrer">LC nº 214/2025 ↗</a></li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm" target="_blank" rel="noopener noreferrer">EC nº 132/2023 ↗</a></li>
+                    <li><a href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo" target="_blank" rel="noopener noreferrer">Reforma do Consumo — Receita Federal ↗</a></li>
+                    <li><a href="https://wiki.atua.com.br:8028/pt-br/Reforma-Tributaria/Reforma_Tributaria" target="_blank" rel="noopener noreferrer">Wiki Atua — Reforma Tributária ↗</a></li>
+                    <li><a href="https://wiki.atua.com.br:8028/pt-br/Atua-Store/Add-ons/classificacao-tributaria-rumo" target="_blank" rel="noopener noreferrer">Wiki Atua — Add-on Rumo ↗</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Reforma Tributária no Atua — atualizado em 10/11/2026</span>
+            <span>Desenvolvido por <b>NSTECH</b></span>
+        </div>
+    </div>
+</footer>
+
+<button type="button" class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+<script>
+(function(){
+    'use strict';
+
+    const normalize = s => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');
+    const texto = el => el.textContent.replace(/\s+/g,' ').trim();
+
+    /* Sinônimos/apelidos para busca (chaves já normalizadas: minúsculas, sem acento) */
+    const SINONIMOS = {
+        'cte': ['ct-e','ctrc'],
+        'ctrc': ['ct-e'],
+        'nfe': ['nf-e'],
+        'nfse': ['nfs-e'],
+        'mdfe': ['mdf-e'],
+        'nota': ['nf-e','nfs-e'],
+        'simples': ['simples nacional'],
+        'aliquota': ['aliquotas','0,9%','0,1%'],
+        'percentual': ['aliquota'],
+        'imposto': ['tributo','ibs','cbs'],
+        'tributo': ['imposto'],
+        'credito': ['creditos','nao cumulativ'],
+        'exportacao': ['imune','410'],
+        'imune': ['exportacao'],
+        'cooperativa': ['cooperativas','200020'],
+        'rumo': ['classificacao tributaria rumo'],
+        'cclasstrib': ['classificacao tributaria'],
+        'classificacao': ['class. trib.'],
+        'homologacao': ['simular'],
+        'teste': ['homologacao','simular'],
+        'xml': ['xml - reforma'],
+        'permissao': ['permissoes','funcao'],
+        'servico': ['servico prestado','nbs'],
+        'nbs': ['servico prestado'],
+        'produto': ['produtos'],
+        'pis': ['cofins'],
+        'cofins': ['pis'],
+        'icms': ['iss'],
+        'ciot': ['e-frete','contrato de frete'],
+        'autonomo': ['tac'],
+        'tac': ['autonomo'],
+        'prazo': ['vigencia','cronograma'],
+        'data': ['vigencia'],
+        'bloqueio': ['bloqueadas','bloqueia','erro'],
+        'erro': ['bloqueia','mensagem']
+    };
+
+    /* ---------- Acordeão FAQ ---------- */
+    const faqs = Array.from(document.querySelectorAll('.faq-item'));
+
+    function closeAllFaq(){
+        faqs.forEach(faq => {
+            faq.classList.remove('open');
+            faq.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            faq.querySelector('.faq-a').style.maxHeight = '0px';
+        });
+    }
+
+    faqs.forEach((item, i) => {
+        const btn = item.querySelector('.faq-q');
+        const answer = item.querySelector('.faq-a');
+        answer.id = 'faq-a-' + i;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', answer.id);
+        btn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+            closeAllFaq();
+            if(!isOpen){
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const open = document.querySelector('.faq-item.open .faq-a');
+            if(open) open.style.maxHeight = open.scrollHeight + 'px';
+        }, 120);
+    });
+
+    /* ---------- Abas das configurações ---------- */
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+
+    function ativarAba(tab, focar){
+        tabs.forEach((t, i) => {
+            const on = t === tab;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.tabIndex = on ? 0 : -1;
+            panels[i].hidden = !on;
+        });
+        if(focar) tab.focus();
+    }
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => ativarAba(tab, false));
+        tab.addEventListener('keydown', e => {
+            let alvo = null;
+            if(e.key === 'ArrowRight') alvo = tabs[(i + 1) % tabs.length];
+            else if(e.key === 'ArrowLeft') alvo = tabs[(i - 1 + tabs.length) % tabs.length];
+            else if(e.key === 'Home') alvo = tabs[0];
+            else if(e.key === 'End') alvo = tabs[tabs.length - 1];
+            if(alvo){ e.preventDefault(); ativarAba(alvo, true); }
+        });
+    });
+    if(tabs.length) ativarAba(tabs[0], false);
+
+    /* Leva até um trecho do guia, abrindo a aba se for preciso */
+    function irPara(el){
+        const painel = el.closest('.tabpanel');
+        if(painel && painel.hidden){
+            ativarAba(document.getElementById(painel.getAttribute('aria-labelledby')), false);
+        }
+        const secao = el.closest('.reveal');
+        if(secao) secao.classList.add('is-visible');
+        el.scrollIntoView({behavior:'smooth', block:'center'});
+        el.classList.add('flash');
+        setTimeout(() => el.classList.remove('flash'), 1600);
+    }
+
+    /* ---------- Índice do guia para a busca ---------- */
+    const guideEntries = Array.from(document.querySelectorAll('.buscavel')).map((el, i) => {
+        el.id = el.id || ('guia-item-' + i);
+        const painel = el.closest('.tabpanel');
+        const secao = el.closest('section');
+        const onde = painel
+            ? 'Configurações no Atua › ' + painel.dataset.aba
+            : (secao && secao.dataset.nome) || 'Guia';
+        return { id: el.id, el: el, titulo: el.dataset.titulo, onde: onde, texto: normalize(el.dataset.titulo + ' ' + texto(el)) };
+    });
+
+    /* ---------- Realce de termos (seguro para HTML) ---------- */
+    function highlight(html, palavras){
+        const box = document.createElement('div');
+        box.innerHTML = html;
+        const walker = document.createTreeWalker(box, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while(walker.nextNode()) nodes.push(walker.currentNode);
+
+        nodes.forEach(node => {
+            const original = node.nodeValue;
+            const norm = normalize(original);
+            if(norm.length !== original.length) return;
+            const ranges = [];
+            palavras.forEach(p => {
+                if(!p) return;
+                let idx = norm.indexOf(p);
+                while(idx !== -1){
+                    ranges.push([idx, idx + p.length]);
+                    idx = norm.indexOf(p, idx + p.length);
+                }
+            });
+            if(!ranges.length) return;
+            ranges.sort((a,b) => a[0] - b[0]);
+            const merged = [];
+            ranges.forEach(r => {
+                const last = merged[merged.length - 1];
+                if(last && r[0] <= last[1]) last[1] = Math.max(last[1], r[1]);
+                else merged.push([r[0], r[1]]);
+            });
+            const frag = document.createDocumentFragment();
+            let pos = 0;
+            merged.forEach(range => {
+                const s = range[0], e = range[1];
+                if(s > pos) frag.appendChild(document.createTextNode(original.slice(pos, s)));
+                const mk = document.createElement('mark');
+                mk.className = 'hl';
+                mk.textContent = original.slice(s, e);
+                frag.appendChild(mk);
+                pos = e;
+            });
+            if(pos < original.length) frag.appendChild(document.createTextNode(original.slice(pos)));
+            node.parentNode.replaceChild(frag, node);
+        });
+        return box.innerHTML;
+    }
+    const escapar = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    /* ---------- Busca ---------- */
+    const searchInput = document.getElementById('faqSearch');
+    const resultBox = document.getElementById('searchResult');
+    const tags = Array.from(document.querySelectorAll('.help-tag'));
+
+    function limparBusca(){
+        tags.forEach(t => t.classList.remove('active'));
+        resultBox.classList.remove('show');
+        resultBox.innerHTML = '';
+    }
+
+    function pesquisar(){
+        const termo = searchInput.value.trim();
+        if(!termo){ limparBusca(); return; }
+
+        const palavras = termo.split(/\s+/).filter(Boolean);
+        const grupos = palavras.map(p => {
+            const np = normalize(p);
+            const set = new Set([np]);
+            (SINONIMOS[np] || []).forEach(s => set.add(normalize(s)));
+            return Array.from(set).filter(Boolean);
+        });
+        const combina = t => grupos.every(g => g.some(v => t.includes(v)));
+        const termosRealce = Array.from(new Set(grupos.flat()));
+
+        const faqMatches = faqs.filter(item =>
+            combina(normalize(texto(item.querySelector('.faq-q')) + ' ' + texto(item.querySelector('.faq-content'))))
+        );
+        const guiaMatches = guideEntries.filter(g => combina(g.texto));
+        const total = faqMatches.length + guiaMatches.length;
+
+        if(!total){
+            resultBox.innerHTML =
+                '<div class="search-fail">Não encontramos conteúdo relacionado.</div>' +
+                '<div class="ticket-box">Tente termos como <strong>CT-e</strong>, <strong>NFS-e</strong>, <strong>Simples Nacional</strong>, <strong>alíquota</strong> ou <strong>exportação</strong>.<br><br>' +
+                'Se a dúvida permanecer após consultar os materiais disponíveis, recomendamos a abertura de um ticket para análise da equipe de suporte.</div>';
+            resultBox.classList.add('show');
+            return;
+        }
+
+        let html = '<div class="search-success">' + total + (total === 1 ? ' resultado encontrado' : ' resultados encontrados') + '</div>';
+
+        if(faqMatches.length){
+            html += '<div class="result-group-title">Perguntas frequentes</div>';
+            html += faqMatches.map(item => {
+                const pergunta = highlight(item.querySelector('.faq-q').innerHTML, termosRealce);
+                const resposta = highlight(item.querySelector('.faq-content').innerHTML, termosRealce);
+                return '<div class="search-match"><strong>' + pergunta + '</strong><div class="search-answer">' + resposta + '</div></div>';
+            }).join('');
+        }
+
+        if(guiaMatches.length){
+            html += '<div class="result-group-title">No guia desta página</div>';
+            html += guiaMatches.map(g =>
+                '<a class="search-match guia-link" href="#' + g.id + '" data-guia="' + g.id + '"><strong>' +
+                highlight(escapar(g.titulo), termosRealce) + '</strong><p>' + escapar(g.onde) + ' →</p></a>'
+            ).join('');
+        }
+
+        resultBox.innerHTML = html;
+        resultBox.classList.add('show');
+
+        resultBox.querySelectorAll('.guia-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.getElementById(link.dataset.guia);
+                if(target) irPara(target);
+            });
+        });
+    }
+
+    let searchTimer;
+    searchInput.addEventListener('input', () => {
+        tags.forEach(t => t.classList.toggle('active', normalize(t.textContent) === normalize(searchInput.value.trim())));
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(pesquisar, 160);
+    });
+
+    tags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            const isActive = tag.classList.contains('active');
+            tags.forEach(t => t.classList.remove('active'));
+            if(isActive){
+                searchInput.value = '';
+                limparBusca();
+                searchInput.focus();
+                return;
+            }
+            tag.classList.add('active');
+            searchInput.value = tag.textContent;
+            pesquisar();
+        });
+    });
+
+    /* Link direto para um trecho do guia (ex.: index.html#guia-item-12) */
+    function abrirHash(){
+        const id = decodeURIComponent(location.hash.slice(1));
+        if(!id) return;
+        const el = document.getElementById(id);
+        if(el && el.closest('.tabpanel')) irPara(el);
+    }
+    window.addEventListener('hashchange', abrirHash);
+    abrirHash();
+
+    /* ---------- Cronograma: destaca o período atual e conta os dias para 2027 ---------- */
+    const hoje = new Date();
+    const ano = hoje.getFullYear();
+    document.querySelectorAll('#timeline .tl-item').forEach(li => {
+        const de = +li.dataset.de, ate = +li.dataset.ate;
+        if(ano >= de && ano <= ate) li.classList.add('is-now');
+        else if(ano > ate) li.classList.add('is-past');
+    });
+    const inicio2027 = new Date(2027, 0, 1);
+    const inicioHoje = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+    const dias = Math.round((inicio2027 - inicioHoje) / 86400000);
+    if(dias > 0){
+        document.getElementById('diasPara2027').textContent = dias;
+        document.getElementById('factContagem').hidden = false;
+    }
+
+    /* ---------- Animação de entrada das seções ---------- */
+    const reveals = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {threshold:0, rootMargin:'0px 0px -60px 0px'});
+        reveals.forEach(el => io.observe(el));
+    } else {
+        reveals.forEach(el => el.classList.add('is-visible'));
+    }
+
+    /* ---------- Voltar ao topo ---------- */
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+        toTop.classList.toggle('show', window.scrollY > 500);
+    }, {passive:true});
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    /* ---------- Scroll-spy no menu fixo ---------- */
+    const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
+    const sections = navLinks
+        .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+        .filter(Boolean);
+
+    if('IntersectionObserver' in window && sections.length){
+        const spy = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    const id = entry.target.id;
+                    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+                }
+            });
+        }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+        sections.forEach(sec => spy.observe(sec));
+    }
+
+    /* ---------- Menu mobile ---------- */
+    const navToggle = document.getElementById('navToggle');
+    const siteNav = document.getElementById('siteNav');
+    function fecharMenu(){
+        siteNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menu');
+        navToggle.textContent = '≡';
+    }
+    navToggle.addEventListener('click', () => {
+        const open = siteNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        navToggle.textContent = open ? '✕' : '≡';
+    });
+    siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', fecharMenu));
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') fecharMenu(); });
+
+    /* ---------- Barra de progresso de scroll ---------- */
+    const progress = document.getElementById('scrollProgress');
+    const atualizaProgresso = () => {
+        const h = document.documentElement;
+        const max = h.scrollHeight - h.clientHeight;
+        progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', atualizaProgresso, {passive:true});
+    atualizaProgresso();
+
+    /* ---------- Micro-interações (parallax do hero + brilho do cursor) ---------- */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    const hero = document.querySelector('.hero');
+    const glow = document.getElementById('cursorGlow');
+
+    if(!prefersReduced && fine){
+        let raf = null, mx = 0, my = 0;
+        window.addEventListener('pointermove', e => {
+            mx = e.clientX; my = e.clientY;
+            if(raf) return;
+            raf = requestAnimationFrame(() => {
+                raf = null;
+                glow.style.opacity = '1';
+                glow.style.transform = 'translate3d(' + (mx - 260) + 'px,' + (my - 260) + 'px,0)';
+                hero.style.setProperty('--grid-x', ((mx / window.innerWidth - .5) * 16) + 'px');
+                hero.style.setProperty('--grid-y', ((my / window.innerHeight - .5) * 16) + 'px');
+            });
+        }, {passive:true});
+    }
+})();
+</script>
+
+</body>
+</html>
