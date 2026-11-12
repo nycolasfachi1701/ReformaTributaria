@@ -77,6 +77,7 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+[hidden]{display:none !important;}
 html{scroll-behavior:smooth; scroll-padding-top:calc(var(--header-h) + 24px);}
 body{
     font-family:var(--corpo);
@@ -970,7 +971,7 @@ html:not(.js) .decisor{display:none;}
                     <li><a href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria-do-consumo" target="_blank" rel="noopener noreferrer"><span>Reforma Tributária do Consumo<small>Programa da Receita Federal</small></span></a></li>
                     <li><a href="https://www.gov.br/nfse/pt-br" target="_blank" rel="noopener noreferrer"><span>Portal da NFS-e<small>Tabelas de NBS, indicadores e classificação</small></span></a></li>
                 </ul>
-                <div class="hero-updated">Conteúdo atualizado em 10/11/2026</div>
+                <div class="hero-updated">Conteúdo atualizado em 12/11/2026</div>
             </aside>
         </div>
 
@@ -1185,7 +1186,7 @@ html:not(.js) .decisor{display:none;}
 
         <div class="block">
             <div class="note buscavel" data-titulo="Alíquotas de 2027 em diante são de referência">
-                <strong>Sobre as alíquotas de 2027 em diante:</strong> elas são <strong>de referência</strong> e dependem de resolução do Senado. Até a data de atualização deste conteúdo, a da CBS de 2027 não estava fixada. Para qualquer número de 2027 em diante, consulte o texto oficial da LC 214/2025, que já foi alterado pelas LC 224 e LC 227/2026, e valide com a sua contabilidade.
+                <strong>Sobre as alíquotas de 2027 em diante:</strong> elas são <strong>de referência</strong> e dependem de resolução do Senado. Até 10/11/2026, a da CBS de 2027 não estava fixada. Para qualquer número de 2027 em diante, consulte o texto oficial da LC 214/2025, que já foi alterado pelas LC 224 e LC 227/2026, e valide com a sua contabilidade.
             </div>
         </div>
 
@@ -1254,7 +1255,7 @@ html:not(.js) .decisor{display:none;}
                     <li><strong>PIS e COFINS acabam.</strong> A CBS passa a ser recolhida de fato, e as exportações para a contabilidade deixam de contar o tributo como receita.</li>
                     <li><strong>Contrato de frete / CIOT:</strong> o valor do frete enviado à administradora do CIOT (E-Frete) sai <strong>sem</strong> o IBS/CBS.</li>
                     <li><strong>Crédito nas compras:</strong> como o IBS/CBS não é cumulativo, o imposto pago em combustível, peças e serviços vira crédito. O Atua já separa o IBS/CBS das despesas lançadas.</li>
-                    <li><strong>Simples Nacional:</strong> a empresa escolhe entre continuar no <strong>Simples Nacional - Padrão</strong>, que não destaca IBS/CBS, e o <strong>Simples Nacional - Regime Regular</strong>, que destaca IBS/CBS e permite que o tomador tome crédito. Essa escolha é decisão da contabilidade.</li>
+                    <li><strong>Simples Nacional:</strong> a empresa escolhe entre continuar no <strong>Simples Nacional - Padrão</strong>, que recolhe o IBS/CBS no DAS e não destaca o imposto, e o <strong>Simples Nacional - Regime Regular</strong>, que recolhe por fora, destaca o IBS/CBS e permite que o tomador tome crédito. Nos dois casos o documento continua identificando a empresa como Simples Nacional. Essa escolha é decisão da contabilidade. <a class="doc-link" href="#cfg-simples-como" data-alvo="cfg-simples-como">Ver como funciona →</a></li>
                     <li><strong>Transportador autônomo (TAC):</strong> a LC 214/2025 prevê crédito presumido de IBS/CBS para quem contrata frete de transportador autônomo pessoa física não contribuinte. Confira o artigo com a contabilidade. <strong>O Atua ainda não trata esse crédito.</strong></li>
                 </ul>
             </div>
@@ -1335,6 +1336,12 @@ html:not(.js) .decisor{display:none;}
                         <button type="button" class="chip" id="planoRumo" aria-pressed="false">Vou usar a Classificação Tributária Rumo</button>
                     </div>
                 </div>
+                <div class="plan-q" id="planoQRegular" hidden>
+                    <span class="plan-q-label" id="lblRegular">Em 2027</span>
+                    <div class="chips" role="group" aria-labelledby="lblRegular">
+                        <button type="button" class="chip" id="planoRegular" aria-pressed="false">Vou optar pelo Regime Regular</button>
+                    </div>
+                </div>
             </div>
 
             <p class="plan-empty" id="planoVazio">Escolha o regime tributário da empresa para montar o plano.</p>
@@ -1363,6 +1370,7 @@ html:not(.js) .decisor{display:none;}
         <div class="guide-panel">
             <div class="tablist" role="tablist" aria-label="Assuntos de configuração">
                 <button type="button" class="tab" role="tab" id="tab-geral" aria-controls="painel-geral" aria-selected="true">Revisões gerais</button>
+                <button type="button" class="tab" role="tab" id="tab-simples" aria-controls="painel-simples" aria-selected="false" tabindex="-1">Simples Nacional</button>
                 <button type="button" class="tab" role="tab" id="tab-cte" aria-controls="painel-cte" aria-selected="false" tabindex="-1">CT-e</button>
                 <button type="button" class="tab" role="tab" id="tab-nfse" aria-controls="painel-nfse" aria-selected="false" tabindex="-1">NFS-e</button>
                 <button type="button" class="tab" role="tab" id="tab-nfe" aria-controls="painel-nfe" aria-selected="false" tabindex="-1">NF-e</button>
@@ -1379,11 +1387,11 @@ html:not(.js) .decisor{display:none;}
                 <p class="panel-lede">Valem para todos os documentos. Comece por aqui.</p>
                 <div class="panel-block cfg-list">
                     <div class="cfg-item buscavel" id="cfg-tributacao" data-titulo="Tributação Federal (regime da empresa)">
-                        <div class="cfg-path">Segurança » Parâmetro » Empresa Grupo</div>
+                        <div class="cfg-path">Início » Segurança » Parâmetro » Empresa Grupo » Manutenção dos Parâmetros Empresa Grupo</div>
                         <div class="cfg-field">Tributação Federal</div>
-                        <p>Confira o regime de cada empresa do grupo. Opções: <strong>Lucro Real</strong>, <strong>Lucro Presumido</strong>, <strong>Simples Nacional - Padrão</strong> e <strong>Simples Nacional - Regime Regular</strong>.</p>
+                        <p>Confira o regime de cada empresa do grupo. Opções: <strong>Lucro Real</strong>, <strong>Lucro Presumido</strong>, <strong>Simples Nacional - Padrão</strong> e <strong>Simples Nacional - Regime Regular</strong>. Excesso de Sublimite e MEI não estão na lista.</p>
                         <p>Destacam IBS/CBS: Lucro Real, Lucro Presumido, Regime Regular e o campo em branco. <strong>Simples Nacional - Padrão não destaca</strong>, nem em 2026 nem em 2027.</p>
-                        <p>O Regime Regular só pode ser escolhido a partir de 01/01/2027: antes disso a opção não aparece. Valide o regime com a contabilidade.</p>
+                        <p>O Regime Regular só pode ser escolhido a partir de 01/01/2027: antes disso a opção não aparece. Valide o regime com a contabilidade. <a class="doc-link" href="#cfg-simples-como" data-alvo="cfg-simples-como">Ver como funciona o Regime Regular →</a></p>
                     </div>
                     <div class="cfg-item buscavel" id="cfg-aliquotas" data-titulo="Alíquotas PIS, COFINS e CBS (%)">
                         <div class="cfg-path">Tabela Imposto Federal (antiga “Tabela PIS/COFINS”)</div>
@@ -1401,6 +1409,109 @@ html:not(.js) .decisor{display:none;}
                         <div class="cfg-path">Segurança » Parâmetro » Imposto Federal » Manutenção de Parâmetro Imposto Federal</div>
                         <div class="cfg-field">Class. Trib. IBS/CBS Mercadoria Destinada Exportação</div>
                         <p>O código usado no frete de mercadoria para exportação: <span class="code">410004</span> ou <span class="code">410027</span>. O padrão é 410027.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- SIMPLES NACIONAL ---- -->
+            <div class="tabpanel" role="tabpanel" id="painel-simples" aria-labelledby="tab-simples" data-aba="Simples Nacional">
+                <h3 class="panel-title">Simples Nacional: Padrão ou Regime Regular</h3>
+                <p class="panel-lede">Com a Reforma, a empresa do Simples pode recolher o IBS/CBS <strong>dentro do DAS</strong> (Simples Nacional - Padrão) ou <strong>por fora</strong> (Simples Nacional - Regime Regular). A escolha vale a partir de 01/01/2027 e muda o que sai nos documentos fiscais. É uma decisão para tomar com a contabilidade.</p>
+
+                <div class="panel-block table-wrap buscavel" id="cfg-simples-resultado" data-titulo="Simples Nacional - Padrão x Regime Regular: o que sai no documento">
+                    <table class="g-table is-wide">
+                        <thead><tr><th>Enquadramento</th><th>Como recolhe o IBS/CBS</th><th>Identificação no documento</th><th>IBS/CBS no documento</th></tr></thead>
+                        <tbody>
+                            <tr><td>Simples Nacional - Padrão</td><td>No DAS</td><td>Simples Nacional</td><td>Sem IBS/CBS</td></tr>
+                            <tr><td>Simples Nacional - Regime Regular</td><td>Por fora</td><td>Simples Nacional</td><td>Com IBS/CBS</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel-block buscavel" id="cfg-simples-como" data-titulo="Como funciona o Simples Nacional - Regime Regular">
+                    <h4 class="sub-title">Como funciona o Regime Regular</h4>
+                    <ol class="steps">
+                        <li>A partir de 01/01/2027, acesse o Parâmetro Empresa Grupo e selecione <strong>Simples Nacional - Regime Regular</strong> em Tributação Federal.</li>
+                        <li>Na emissão, o sistema continua identificando a empresa como <strong>Simples Nacional</strong> no documento.</li>
+                        <li>O sistema calcula e informa o IBS e a CBS no CT-e, na NF-e e na NFS-e Nacional.</li>
+                        <li>O ICMS e o ISS seguem a configuração fiscal da empresa. O regime, sozinho, não muda esse cálculo.</li>
+                    </ol>
+                </div>
+
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" id="cfg-simples-onde" data-titulo="Onde escolher o Regime Regular e botão Importar">
+                        <div class="cfg-path">Início » Segurança » Parâmetro » Empresa Grupo » Manutenção dos Parâmetros Empresa Grupo</div>
+                        <div class="cfg-field">Tributação Federal</div>
+                        <p>As opções são Lucro Real, Lucro Presumido, <strong>Simples Nacional - Padrão</strong> (o antigo “Simples Nacional”, renomeado) e <strong>Simples Nacional - Regime Regular</strong> (nova). Excesso de Sublimite e MEI continuam fora da lista.</p>
+                        <p>O botão <strong>Importar</strong>, que traz os dados padrão da tributação, carrega para o Regime Regular os parâmetros padrão do Simples Nacional.</p>
+                    </div>
+                    <div class="cfg-item buscavel" id="cfg-simples-vigencia" data-titulo="Regime Regular só aparece a partir de 01/01/2027">
+                        <div class="cfg-path">Parâmetro Empresa Grupo » Tributação Federal</div>
+                        <div class="cfg-field">Disponível só a partir de 01/01/2027</div>
+                        <p>Antes dessa data a opção não aparece na lista. <strong>Isso é esperado, não é erro.</strong> O sistema considera a data do servidor.</p>
+                        <p>Se alguém tentar gravar o Regime Regular antes, por exemplo pela importação da ficha de implantação, aparece a mensagem:</p>
+                        <div class="msg-list"><div class="msg err">A Tributação Federal [Simples Nacional - Regime Regular] só pode ser informada a partir de 01/01/2027!</div></div>
+                    </div>
+                    <div class="cfg-item cfg-wide buscavel" id="cfg-simples-icms" data-titulo="O Regime Regular não zera ICMS nem ISS">
+                        <div class="cfg-path">Configuração de ICMS · Tributação ISSQN</div>
+                        <div class="cfg-field">O regime não zera ICMS nem ISS</div>
+                        <p>O cálculo do ICMS e do ISS depende da configuração da empresa, exatamente como já acontece no Simples Nacional - Padrão:</p>
+                        <ul class="item-list">
+                            <li><strong>ICMS:</strong> se a configuração de ICMS gerar valor, o CT-e sai com ICMS normal. Se o valor for zero, sai com a indicação de Simples Nacional.</li>
+                            <li><strong>ISS:</strong> segue a Tributação ISSQN, nesta prioridade: Cliente, depois Serviço Prestado, depois Parâmetro Filial.</li>
+                        </ul>
+                        <p style="margin-top:10px">Ao mudar para o Regime Regular, revise a configuração de ICMS e de ISS com o contador, como em qualquer mudança de enquadramento.</p>
+                    </div>
+                </div>
+
+                <div class="panel-block">
+                    <h4 class="sub-title">O que sai em cada documento no Regime Regular</h4>
+                    <div class="cfg-list">
+                        <div class="cfg-item buscavel" id="cfg-simples-cte" data-titulo="CT-e no Simples Nacional - Regime Regular">
+                            <div class="cfg-path">Emissão de CT-e</div>
+                            <div class="cfg-field">CT-e</div>
+                            <p>O regime declarado continua sendo <strong>Simples Nacional</strong>, e o documento passa a levar o grupo de IBS/CBS, calculado pelo sistema.</p>
+                            <p>O grupo sai para Lucro Real, Lucro Presumido e Regime Regular, e não sai para o Simples Nacional - Padrão. O DACTE não mudou.</p>
+                        </div>
+                        <div class="cfg-item buscavel" id="cfg-simples-nfe" data-titulo="NF-e no Simples Nacional - Regime Regular">
+                            <div class="cfg-path">Emissão de NF-e · cadastro do Produto</div>
+                            <div class="cfg-field">NF-e</div>
+                            <ul class="item-list">
+                                <li>O regime declarado é Simples Nacional e o grupo de IBS/CBS sai no documento.</li>
+                                <li>A observação “EMPRESA OPTANTE PELO SIMPLES NACIONAL” e o PIS/COFINS no formato do Simples continuam valendo.</li>
+                                <li>O ICMS do produto sai no formato do Simples, e a trava de diferencial de alíquota não se aplica, como já acontecia no Padrão.</li>
+                                <li>A área de IBS/CBS do item passa a aparecer. Sem a regra de IBS/CBS no Produto, a nota é <strong>bloqueada</strong>.</li>
+                            </ul>
+                        </div>
+                        <div class="cfg-item buscavel" id="cfg-simples-nfse" data-titulo="NFS-e no Simples Nacional - Regime Regular">
+                            <div class="cfg-path">Emissão de NFS-e · Serviço Prestado</div>
+                            <div class="cfg-field">NFS-e</div>
+                            <ul class="item-list">
+                                <li><strong>NFS-e Nacional:</strong> o grupo de IBS/CBS sai no documento e a empresa continua informada como optante do Simples.</li>
+                                <li><strong>Padrões municipais</strong> de Bento Gonçalves, ISS Online, Itajaí, Marau, Passo Fundo e Ponta Grossa: tratam o Regime Regular como Simples.</li>
+                                <li><strong>E-Notas:</strong> Código NBS, Classificação Tributária e Código Indicador da Operação do Serviço Prestado passam a ser exigidos também para o Regime Regular.</li>
+                            </ul>
+                        </div>
+                        <div class="cfg-item buscavel" id="cfg-simples-sped" data-titulo="SPED e GFIP no Simples Nacional - Regime Regular">
+                            <div class="cfg-path">Exportação SPED · GFIP</div>
+                            <div class="cfg-field">SPED e GFIP</div>
+                            <p>O Regime Regular é tratado como optante do Simples, inclusive com a mensagem de que a empresa não está sujeita à EFD PIS/COFINS.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-block cfg-list">
+                    <div class="cfg-item buscavel" id="cfg-simples-padrao" data-titulo="Quem continua no Simples Nacional - Padrão em 2027">
+                        <div class="cfg-path">Simples Nacional - Padrão</div>
+                        <div class="cfg-field">Quem continua no Padrão</div>
+                        <p>A única mudança é na NF-e: <strong>em 2027 ela sai sem os campos da Reforma.</strong></p>
+                        <p>CT-e, NFS-e, SPED e ICMS continuam iguais, assim como no Lucro Real e no Lucro Presumido.</p>
+                    </div>
+                    <div class="cfg-item buscavel" id="cfg-simples-exemplo" data-titulo="Exemplo prático: transportadora do Simples que opta pelo Regime Regular">
+                        <div class="cfg-path">Exemplo fictício</div>
+                        <div class="cfg-field">Na prática</div>
+                        <p>A “Transportadora Exemplo”, do Simples, optou por recolher o IBS/CBS por fora em 2027. Em janeiro de 2027 o usuário muda a Tributação Federal para Simples Nacional - Regime Regular.</p>
+                        <p>Os CT-es seguintes saem identificando a empresa como Simples, com o grupo de IBS/CBS preenchido. O ICMS continua saindo zerado, porque a configuração de ICMS dela já era a do Simples.</p>
                     </div>
                 </div>
             </div>
@@ -1800,7 +1911,35 @@ html:not(.js) .decisor{display:none;}
             <div class="faq-item">
                 <button type="button" class="faq-q">Sou do Simples Nacional. Preciso fazer algo?</button>
                 <div class="faq-a"><div class="faq-content">
-                    Em 2026, não. Para 2027, decida com a contabilidade entre o Simples Nacional - Padrão, que não destaca IBS/CBS, e o Simples Nacional - Regime Regular, que destaca e permite que o tomador tome crédito.
+                    Em 2026, não. Para 2027, decida com a contabilidade entre o Simples Nacional - Padrão, que recolhe o IBS/CBS no DAS e não destaca o imposto no documento, e o Simples Nacional - Regime Regular, que recolhe por fora, destaca o IBS/CBS e permite que o tomador tome crédito.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Não encontro a opção Simples Nacional - Regime Regular. Por quê?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Ela só fica disponível na Tributação Federal a partir de 01/01/2027, quando a opção passa a ter efeito. Antes disso, não aparecer é o esperado, não é erro.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Escolhi o Regime Regular e o CT-e saiu com ICMS. Está errado?</button>
+                <div class="faq-a"><div class="faq-content">
+                    O regime não desliga o ICMS sozinho: o cálculo segue a configuração de ICMS da empresa. O mesmo vale para o ISS, que segue a Tributação ISSQN. Revise essa configuração com o contador.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Estou no Regime Regular e o CT-e saiu como Simples Nacional, e não como Regime Normal. Está certo?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Sim. A empresa continua sendo do Simples. A diferença do Regime Regular é que o IBS/CBS passa a ser informado no documento.
+                </div></div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-q">Vou continuar no Simples Nacional - Padrão. Muda alguma coisa em 2027?</button>
+                <div class="faq-a"><div class="faq-content">
+                    Só na NF-e, que em 2027 sai sem os campos da Reforma. CT-e, NFS-e, SPED e ICMS continuam iguais.
                 </div></div>
             </div>
 
@@ -1901,7 +2040,7 @@ html:not(.js) .decisor{display:none;}
             </div>
         </div>
         <div class="footer-bottom">
-            <span>Reforma Tributária no Atua — atualizado em 10/11/2026</span>
+            <span>Reforma Tributária no Atua — atualizado em 12/11/2026</span>
             <span>Desenvolvido por <b>NSTECH</b></span>
         </div>
     </div>
@@ -1936,6 +2075,12 @@ html:not(.js) .decisor{display:none;}
         'mdfe': ['mdf-e'],
         'nota': ['nf-e','nfs-e'],
         'simples': ['simples nacional'],
+        'regular': ['regime regular'],
+        'padrao': ['simples nacional - padrao'],
+        'das': ['no das','dentro do das'],
+        'mei': ['sublimite'],
+        'iss': ['issqn'],
+        'sped': ['efd'],
         'aliquota': ['aliquotas','0,9%','0,1%'],
         'percentual': ['aliquota'],
         'imposto': ['tributo','ibs','cbs'],
@@ -2131,7 +2276,11 @@ html:not(.js) .decisor{display:none;}
             (SINONIMOS[np] || []).forEach(s => set.add(normalize(s)));
             return Array.from(set).filter(Boolean);
         });
-        const combina = t => grupos.every(g => g.some(v => t.includes(v)));
+        /* Termos curtos (ISS, MEI, DAS, IS...) só valem como palavra inteira, para "iss" não casar com "emissão" */
+        const contem = (t, v) => v.length > 3
+            ? t.includes(v)
+            : new RegExp('(^|[^a-z0-9])' + v.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9]|$)').test(t);
+        const combina = t => grupos.every(g => g.some(v => contem(t, v)));
         const termosRealce = Array.from(new Set(grupos.flat()));
 
         const faqMatches = faqs.filter(item =>
@@ -2379,16 +2528,34 @@ html:not(.js) .decisor{display:none;}
             titulo: c => 'Saber que a NF-e pode mostrar um aviso de IBS/CBS',
             texto: c => 'No Simples Nacional - Padrão, produto sem regra de IBS/CBS gera só um aviso. A emissão não é bloqueada.'},
 
-        {id:'simples-opcao', fase:'2027', alvo:'cfg-tributacao', quando: c => c.simples,
+        {id:'simples-opcao', fase:'2027', alvo:'cfg-simples-resultado', quando: c => c.simples,
             titulo: c => 'Decidir com a contabilidade: Padrão ou Regime Regular',
-            texto: c => 'O Regime Regular destaca IBS/CBS e permite que o tomador tome crédito. A opção aparece no sistema a partir de 01/01/2027. Se a escolha for o Regime Regular, a empresa passa a precisar das mesmas configurações de quem destaca IBS/CBS.'},
-        {id:'tabelas', fase:'2027', alvo:'muda-2027', quando: c => !c.simples,
+            texto: c => 'No Padrão o IBS/CBS é recolhido no DAS e não aparece no documento. No Regime Regular ele é recolhido por fora, aparece no documento e o tomador pode tomar crédito.' + (c.rr ? '' : ' Se a escolha for o Regime Regular, marque essa opção acima para ver os passos.')},
+        {id:'padrao-nfe', fase:'2027', alvo:'cfg-simples-padrao', quando: c => c.simples && !c.rr && c.nfe,
+            titulo: c => 'Saber que a NF-e de 2027 sai sem os campos da Reforma',
+            texto: c => 'É a única mudança para quem continua no Simples Nacional - Padrão. Nada precisa ser configurado.'},
+        {id:'rr-selecionar', fase:'2027', alvo:'cfg-simples-vigencia', quando: c => c.rr,
+            titulo: c => 'Em janeiro de 2027, selecionar Simples Nacional - Regime Regular',
+            texto: c => 'A opção só aparece na Tributação Federal a partir de 01/01/2027. Antes disso, ela não aparecer é o esperado.'},
+        {id:'rr-icms-iss', fase:'2027', alvo:'cfg-simples-icms', quando: c => c.rr,
+            titulo: c => 'Revisar a configuração de ICMS e de ISS com o contador',
+            texto: c => 'O Regime Regular não zera ICMS nem ISS sozinho: o cálculo segue a configuração da empresa, como no Simples Nacional - Padrão.'},
+        {id:'rr-cte', fase:'2027', alvo:'cfg-simples-cte', quando: c => c.rr && c.cte,
+            titulo: c => 'Emitir um CT-e e conferir o IBS/CBS no extrato',
+            texto: c => 'O CT-e continua identificando a empresa como Simples Nacional, agora com o grupo de IBS/CBS preenchido.'},
+        {id:'rr-produto', fase:'2027', alvo:'cfg-produto', quando: c => c.rr && c.nfe,
+            titulo: c => 'Criar a regra de IBS/CBS na aba IBS / CBS de cada Produto',
+            texto: c => 'No Regime Regular a área de IBS/CBS do item passa a aparecer, e a NF-e é bloqueada se o produto não tiver a regra.'},
+        {id:'rr-servico', fase:'2027', alvo:'cfg-simples-nfse', quando: c => c.rr && c.nfse,
+            titulo: c => 'Completar o bloco IBS / CBS de cada Serviço Prestado',
+            texto: c => 'Na E-Notas, Código NBS, Classificação Tributária e Código Indicador da Operação passam a ser exigidos também para o Regime Regular.'},
+        {id:'tabelas', fase:'2027', alvo:'muda-2027', quando: c => !c.simples || c.rr,
             titulo: c => 'Revisar as tabelas de frete e os contratos com os clientes',
             texto: c => 'O IBS/CBS passa a ser somado ao frete: mudam o total cobrado, a fatura, os títulos a receber, a base de comissão e o resultado.'},
         {id:'somar-base', fase:'2027', alvo:'cfg-somar-base', quando: c => c.cte && !c.simples,
             titulo: c => 'Conferir o campo Somar IBS/CBS na base nas alíquotas de ICMS',
             texto: c => 'Vale a partir de 01/01/2027 e define se o IBS/CBS entra na base do ICMS. Em branco, soma.'},
-        {id:'simular', fase:'2027', alvo:'cfg-simular', quando: c => (c.cte || c.nfe) && !c.simples,
+        {id:'simular', fase:'2027', alvo:'cfg-simular', quando: c => (c.cte || c.nfe) && (!c.simples || c.rr),
             titulo: c => 'Testar as regras de 2027 em homologação',
             texto: c => 'Ligue Simular Regras RT 2027 no Parâmetro Filial. Só funciona em homologação e desliga sozinho quando o ambiente passa para produção.'},
         {id:'despesa', fase:'2027', alvo:'cfg-despesa', quando: c => !c.simples,
@@ -2407,7 +2574,8 @@ html:not(.js) .decisor{display:none;}
     const planoRumo = document.getElementById('planoRumo');
     const regimeBtns = Array.from(document.querySelectorAll('[data-regime]'));
     const docBtns = Array.from(document.querySelectorAll('[data-doc]'));
-    let plano = {regime:null, docs:['cte'], rumo:false, feitos:{}};
+    const planoRegular = document.getElementById('planoRegular');
+    let plano = {regime:null, docs:['cte'], rumo:false, rr:false, feitos:{}};
 
     try{
         const salvo = JSON.parse(localStorage.getItem(CHAVE_PLANO));
@@ -2415,6 +2583,7 @@ html:not(.js) .decisor{display:none;}
             if(['real','presumido','simples'].includes(salvo.regime)) plano.regime = salvo.regime;
             if(Array.isArray(salvo.docs)) plano.docs = salvo.docs.filter(d => ['cte','nfse','nfe'].includes(d));
             plano.rumo = salvo.rumo === true;
+            plano.rr = salvo.rr === true;
             if(salvo.feitos && typeof salvo.feitos === 'object') plano.feitos = salvo.feitos;
         }
     }catch(e){ /* sem armazenamento local: o plano só não fica salvo */ }
@@ -2431,7 +2600,8 @@ html:not(.js) .decisor{display:none;}
         const c = {
             r: plano.regime, simples: plano.regime === 'simples',
             cte: plano.docs.includes('cte'), nfse: plano.docs.includes('nfse'), nfe: plano.docs.includes('nfe'),
-            rumo: plano.rumo
+            rumo: plano.rumo,
+            rr: plano.regime === 'simples' && plano.rr      /* Simples que vai optar pelo Regime Regular em 2027 */
         };
         return {c: c, lista: TAREFAS.filter(t => t.quando(c))};
     }
@@ -2448,6 +2618,8 @@ html:not(.js) .decisor{display:none;}
         regimeBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.regime === plano.regime ? 'true' : 'false'));
         docBtns.forEach(b => b.setAttribute('aria-pressed', plano.docs.includes(b.dataset.doc) ? 'true' : 'false'));
         planoRumo.setAttribute('aria-pressed', plano.rumo ? 'true' : 'false');
+        planoRegular.setAttribute('aria-pressed', plano.rr ? 'true' : 'false');
+        document.getElementById('planoQRegular').hidden = plano.regime !== 'simples';
 
         planoLista.textContent = '';
         const temRegime = !!plano.regime;
@@ -2498,6 +2670,10 @@ html:not(.js) .decisor{display:none;}
         plano.docs = plano.docs.includes(d) ? plano.docs.filter(x => x !== d) : plano.docs.concat(d);
         salvarPlano(); montarPlano();
     }));
+    planoRegular.addEventListener('click', () => {
+        plano.rr = !plano.rr;
+        salvarPlano(); montarPlano();
+    });
     planoRumo.addEventListener('click', () => {
         plano.rumo = !plano.rumo;
         salvarPlano(); montarPlano();
